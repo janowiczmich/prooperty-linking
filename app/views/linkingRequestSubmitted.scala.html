@@ -1,0 +1,75 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import controllers.propertyLinking.RequestSubmittedVM
+@import config.ApplicationConfig
+
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import utils.Formatters
+@import views.html.includes.assessmentHeading
+
+@this(govukPanel: GovukPanel, govukButton : GovukButton, mainLayout: views.html.mainLayout)
+
+@(model: RequestSubmittedVM)(implicit request: Request[_], messages: Messages, config: ApplicationConfig)
+
+@clientParameter = @{
+        model.clientDetails match {
+            case Some(client) => s"?organisationId=${client.organisationId}&organisationName=${client.organisationName}"
+            case _        => ""
+        }
+}
+@managePropertiesUrl = @{
+    model.clientDetails match {
+        case Some(client) =>
+            config.dashboardUrl(
+                s"selected-client-properties?clientOrganisationId=${client.organisationId}&clientName=${client.organisationName}")
+        case _        => config.dashboardUrl("your-properties")
+    }
+}
+@clientSuffix = @{
+    model.clientDetails match {
+        case Some(id) => ".client"
+        case _        => ""
+    }
+}
+@homeLink = @{
+    config.dashboardUrl("home")
+}
+@linkSubmitted = @{
+    model.clientDetails match {
+        case Some(client)   => Html(messages("linkSubmitted.whatNext.5", managePropertiesUrl))
+        case _              => Html(messages("linkSubmitted.whatNext.2", managePropertiesUrl))
+    }
+}
+
+@mainLayout(
+    pageTitle = messages("linkingRequestSubmitted.title1")
+) {
+    @assessmentHeading(model.localAuthorityReference, model.address)
+
+    @govukPanel(Panel(
+        title = Text(messages("linkingRequestSubmitted.title1")),
+        content = HtmlContent(s"${messages("linkingRequestSubmitted.title3")}<br><strong>${model.refId}</strong>")
+    ))
+            <p class="govuk-body">@messages("linkingRequestSubmitted.p1")</p>
+
+            <h2 class="govuk-heading-m">@messages("heading.whatNext")</h2>
+
+            <p class="govuk-body">@messages("linkSubmitted.whatNext.1")</p>
+            <p class="govuk-body">@linkSubmitted</p>
+            <p class="govuk-body">@messages("linkSubmitted.whatNext.3")</p>
+            <p class="govuk-body">@Html(messages("linkSubmitted.whatNext.4", homeLink))</p>
+}

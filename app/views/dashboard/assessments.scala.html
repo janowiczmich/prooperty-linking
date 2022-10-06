@@ -1,0 +1,46 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import actions.assessments.request.AssessmentsPageSessionRequest
+@import _root_.utils.Formatters
+@import config.ApplicationConfig
+@import views.html.dashboard.assessmentDetails
+
+
+@this(mainLayout: views.html.mainLayout, govukDetails: GovukDetails)
+
+@(model: controllers.AssessmentsVM, owner: Boolean)(implicit request: AssessmentsPageSessionRequest[_], messages: Messages, config: ApplicationConfig)
+
+@mainLayout(
+    pageTitle = messages("assessments.title"),
+    backUri = Some(model.backLink),
+    mainClass = Some("govuk-grid-column-full")
+) {
+    <p class="govuk-body">
+        @model.localAuthorityReference.map{ localAuthorityRef =>
+            <span class="govuk-!-font-weight-bold">@messages("assessments.localAuthorityRef")</span> &nbsp;@localAuthorityRef<br>
+        }
+        <span class="govuk-!-font-weight-bold">@messages("assessments.property")</span> &nbsp;@Formatters.capitalisedAddress(model.address)
+    </p>
+
+    <h1 class="govuk-heading-l">
+        @messages("assessments.pageTitle")
+    </h1>
+
+    <p class="govuk-body">@messages("assessments.paragraph")</p>
+
+    @assessmentDetails(model, owner, govukDetails)
+}

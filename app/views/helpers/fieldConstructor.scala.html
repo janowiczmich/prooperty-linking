@@ -1,0 +1,149 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@***********************************
+
+Example usage:
+
+'_help -> "Custom help",                        (shows help text)
+'_labelClass -> "form-label-bold",              (extra class for labels)
+'_legend -> true,                               (shows legend/label)
+'_optional -> true,                             (shows optional/required for screen readers)
+'_helpIndent -> "help text",                    (shows helptext with indent class)
+'_pound -> true,                                (shows pound sign on inputs)
+'_add' -> true,                                 (shows add/remove links)
+'_detailsQuestion -> "The question",            (details element question text)
+'_detailsAnswer -> "The answer"                 (details element answer text)
+'_characterCount -> "250"                       (character limit)
+'_nojsText -> "no js text"                      (shows no js text)
+
+***********************************@
+
+@import views.html.helper._
+@(elements: helper.FieldElements)(implicit messages: Messages)
+
+
+<div class="@if(elements.hasErrors) {error} form-group">
+
+    @elements.args.get('_legend) match {
+     	case Some(true) => {
+     		<fieldset id="@(elements.id)Group" class="@elements.args.get('_fieldsetClass)">
+   				<legend class="@elements.args.get('_labelClass)">
+                    <span class="@elements.args.get('_labelSpanClass) label-span">@elements.label</span>
+
+                    @if(elements.hasErrors) {
+                            <span class="error-message">@elements.errors.mkString(", ")</span>
+                    }
+
+                    @elements.args.get('_optional) match {
+                        case Some(true) => { <span class="govuk-visually-hidden">(@messages("label.optional"))</span> }
+                        case _ => {}
+                    }
+
+                </legend>
+   		}
+		case _ => {
+			<div id="@elements.id.replace("_","")Group" class="@elements.args.get('_fieldsetClass)">
+                @elements.args.get('_noTopLabel) match {
+                    case Some(true) => {
+
+                        <p class="error-message" id="@(elements.id)_error">@elements.errors.mkString(", ")</p>
+
+                    }
+                    case _ => {
+                        <label class="@elements.args.get('_labelClass)" for="@elements.id.replace("_", "")" >
+                            <span class="@elements.args.get('_labelSpanClass) label-span">@elements.label</span>
+
+                            @if(elements.hasErrors) {
+                                <span class="error-message">@elements.errors.mkString(", ")</span>
+                            }
+
+                            @elements.args.get('_optional) match {
+                                case Some(true) => {
+                                    <span class="govuk-visually-hidden">(@messages("label.optional"))</span>
+                                }
+                                case _ => {}
+                            }
+                        </label>
+                    }
+                }
+		}
+    }
+
+    @elements.args.get('_optional) match {
+        case Some(true) => { <span class="form-hint">@messages("label.optional")</span> }
+        case _ => {}
+    }
+
+    @elements.args.get('_nojsText).map { nojsText =>
+            <p class="hidden">@nojsText</p>
+    }
+
+
+    @elements.args.get('_helpIndent).map { helpText =>
+            <p class="icon-important">@helpText</p>
+    }
+    @elements.args.get('_detailsQuestion) match {
+        case Some(q) => {
+            <details>
+                <summary><span class="summary">@q</span></summary>
+                <div class="panel-indent">
+                  @elements.args.get('_detailsAnswer).map { detailsAnswer => @detailsAnswer }
+                </div>
+            </details>
+        }
+        case _ => {}
+    }
+
+
+
+    @elements.args.get('_help).map { helpText =>
+    		<span class="form-hint">@helpText</span>
+    }
+
+
+    @elements.args.get('_pound) match {
+        case Some(true) => { <span class="pound">£</span> }
+        case _ => {}
+    }
+
+    @elements.input
+
+    @elements.args.get('_characterCount).map { characterCount =>
+
+        <div class="charCount hide-if-no-js">@Html(Messages("copy.character.count", characterCount))</div>
+        <div class="charCount-no-js hidden">@Html(Messages("copy.character.count.nojs", characterCount))</div>
+
+    }
+
+
+
+    @elements.args.get('_add) match {
+        case Some(true) => {
+            <a href="#" class="remove" role="button" style="display:none">@messages("label.add.remove")</a>
+            <a href="#" class="add" role="button" >@messages("label.add.individual")</a>
+        }
+        case _ => {}
+    }
+
+
+
+	@elements.args.get('_legend) match {
+     	case Some(true) => { </fieldset> }
+		case _ => { </div> }
+    }
+
+</div>

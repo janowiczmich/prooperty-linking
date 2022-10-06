@@ -1,0 +1,103 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import actions.requests._
+@import actions.requests.CcaWrappedRequestHelper._
+@import actions.propertylinking.requests._
+@import config.ApplicationConfig
+
+@(content: Html,
+        includeGridWrapper: Boolean = false,
+        articleClasses: Option[String] = None,
+        showLogout: Boolean = true,
+        topNavigation: Boolean = true,
+        topBackLink: Boolean = false,
+        bottomBackLink: Boolean = false,
+        backLinkUrl: Option[String] = None
+)(implicit requestHeader: RequestHeader, messages: Messages, config: ApplicationConfig)
+
+<article class="content_body@if(includeGridWrapper) { grid-wrapper} @if(articleClasses.isDefined) {
+    @articleClasses.get
+}">
+    @backLink = {
+        <a href=@backLinkUrl.orElse(requestHeader.headers.get("referer")).getOrElse(config.dashboardUrl("home")) class="link-back">@messages("link.back")</a>
+    }
+
+    @if(topNavigation) {
+        <header class="page-header">
+            <div class="grid-row">
+                <div class="column-full">
+                    @if(topBackLink) {
+                        @backLink
+                    }
+                    <ul class="admin-nav">
+                    @if(showLogout) {
+                        <li><a href="@config.dashboardUrl("home")">@messages("link.home")</a><span class="separator"> |</span></li>
+                        @requestHeader match {
+                            case req: CcaWrappedRequest => {
+                                <li><a href="@config.dashboardUrl("your-details")">
+                                @req.yourDetailsName.getOrElse(Messages("navigation.your.details"))
+                                </a><span class="separator"> |</span> </li>
+                            }
+
+                            case request: AuthenticatedRequest[_] => {
+                                @if(request.individualAccount.details.firstName + " " + request.individualAccount.details.lastName != request.organisationAccount.companyName){
+                                    <li><a href="@config.dashboardUrl("your-details")">
+                                        @request.individualAccount.details.firstName @request.individualAccount.details.lastName  - @request.organisationAccount.companyName
+                                    </a><span class="separator"> |</span> </li>
+                                }else{
+                                    <li><a href="@config.dashboardUrl("your-details")">
+                                        @request.individualAccount.details.firstName @request.individualAccount.details.lastName
+                                    </a><span class="separator"> |</span> </li>
+                                }
+                            }
+                            case linkingRequest: LinkingSessionRequest[_] => {
+                                @if(linkingRequest.individualAccount.details.firstName + " " + linkingRequest.individualAccount.details.lastName != linkingRequest.organisationAccount.companyName){
+                                    <li><a href="@config.dashboardUrl("your-details")">
+                                        @linkingRequest.individualAccount.details.firstName @linkingRequest.individualAccount.details.lastName - @linkingRequest.organisationAccount.companyName
+                                    </a><span class="separator"> |</span> </li>
+                                }else{
+                                    <li><a href="@config.dashboardUrl("your-details")">
+                                        @linkingRequest.individualAccount.details.firstName @linkingRequest.individualAccount.details.lastName
+                                    </a><span class="separator"> |</span> </li>
+                                }
+                            }
+                            case _ => {}
+                        }
+                        <li><a href="@routes.Application.logOut">@messages("logout.link")</a></li>
+                    } else {
+                        <li><a href="@routes.Login.show">@messages("label.login")</a></li>
+                    }
+                    </ul>
+                </div>
+            </div>
+        </header>
+    }
+
+    @content
+
+    @if(bottomBackLink) {
+        @backLink
+    }
+
+    <details class="get-help-toggle">
+        <summary><span class="summary">@messages("getHelpLink")</span></summary>
+        <div class="panel panel-border-wide">
+            @Html(Messages("getHelpContent", "ccaservice@voa.gov.uk"))
+        </div>
+    </details>
+
+</article>

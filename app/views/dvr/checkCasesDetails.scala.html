@@ -1,0 +1,163 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import models.dvr.cases.check.projection.CaseDetails
+@import utils.Formatters._
+@import config.ApplicationConfig
+@import controllers.detailedvaluationrequest.routes
+
+@import java.time.LocalDateTime
+@import java.time.LocalDate
+@import views.html.includes.helpIcon
+
+@(propertyLinkSubmissionId: String, isOwner: Boolean, uarn: Long, authorisationId: Long, assessmentRef: Long, listYear:String, checkCases: List[CaseDetails], downloadUrl: String, startCheckUrl: String)(govukButton: GovukButton, govukTable: GovukTable, govukDetails: GovukDetails, govukWarningText: GovukWarningText)(implicit request: Request[_], messages: Messages, config: ApplicationConfig)
+
+@viewCaseUrl(checkRef: String, submissionId: String) = @{
+    config.businessRatesCheckUrl(s"check-case/$checkRef/summary?propertyLinkSubmissionId=$submissionId&isOwner=$isOwner")
+}
+
+@canChallengeLink(assessmentRef: Long, caseRef: String) = @{
+    routes.DvrController.canChallenge(propertyLinkSubmissionId, assessmentRef, caseRef, authorisationId, uarn, isOwner, listYear).url
+}
+
+@challengeLink(assessmentRef: Long, checkReference: String) = {
+    <a id="challenge-link" class="govuk-link" href="@canChallengeLink(assessmentRef, checkReference)">@messages("property.details.checkcases.table.challenge")</a>
+}
+
+@returnUrl = @{
+    if(isOwner)
+        s"${config.serviceUrl}${controllers.detailedvaluationrequest.routes.DvrController.myOrganisationRequestDetailValuationCheck(propertyLinkSubmissionId, assessmentRef, uarn).url}"
+    else
+        s"${config.serviceUrl}${controllers.detailedvaluationrequest.routes.DvrController.myClientsRequestDetailValuationCheck(propertyLinkSubmissionId, assessmentRef, uarn).url}"
+}
+
+@detailContent = {
+    <p>@messages("challengeRules.p1")</p>
+    <p>@messages("challengeRules.p2")</p>
+    <p>@messages("challengeRules.p3")</p>
+    <p>@messages("challengeRules.rules")</p>
+    <ul class="list bullets">
+        <li>@messages("challengeRules.rules.1")</li>
+        <li>@messages("challengeRules.rules.2")</li>
+        <li>@messages("challengeRules.rules.3")</li>
+    </ul>
+
+    <p>@Html(messages("challengeRules.rules.paper", config.businessRatesValuationFrontendUrl(s"property-link/valuations/startChallenge?backLinkUrl=$returnUrl")))</p>
+}
+
+@tagColour(status: String) = {
+  @status match {
+    case "DECISION SENT" | "CLOSED" | "CANCELLED" => { govuk-tag--grey }
+    case _ => {}
+  }
+}
+
+@statusTagWithHelpLink(status: String) = {
+  <strong class="govuk-tag @tagColour(status)">@status</strong>
+        @helpIcon(
+            visuallyHiddenText = messages("property.details.checks.status.help", status),
+            helpPageBaseUrl = config.businessRatesValuationFrontendUrl("check-status-help"),
+            guidanceElementId = s"dialog-${status.toLowerCase().replaceAll(" ", "-")}"
+        )
+}
+
+@row(checkReference: String, submittedDate: LocalDateTime, status: String, closedDate: Option[LocalDate], submittedBy: String) = @{
+    Seq(
+        TableRow(
+            content = Text(checkReference)
+        ),
+        TableRow(
+            content = Text(formatDateTimeToDate(submittedDate))
+        ),
+        TableRow(
+            content = HtmlContent(statusTagWithHelpLink(status)),
+            classes = "cca-nowrap"
+        ),
+        TableRow(
+            content = Text(closedDate.fold("")(formatDate(_)))
+        ),
+        TableRow(
+            content = Text(submittedBy),
+            classes = "break-word"
+        ),
+        TableRow(
+            content = HtmlContent(challengeLink(assessmentRef, checkReference))
+        )
+    )
+}
+
+@rows = @{
+    checkCases.map{ caseDetails =>
+        row(
+            checkReference = caseDetails.caseReference,
+            submittedDate = caseDetails.submittedDate,
+            status = caseDetails.status.toUpperCase().replaceAll("_", " "),
+            closedDate = caseDetails.closedDate,
+            submittedBy = caseDetails.submittedBy
+        )
+    }
+}
+
+
+<h2 class="govuk-heading-l">@messages("property.details.div.submitted")</h2>
+
+@if(checkCases.isEmpty){
+        <p class="govuk-body" id="no-submitted-checks">@messages("property.details.div.noSubmittedCheck")</p>
+        <p class="govuk-body">@Html(messages("available.requestvaluation.p2", downloadUrl))</p>
+        <p class="govuk-body">@messages("available.requestvaluation.p3")</p>
+
+        @govukWarningText(WarningText(
+            iconFallbackText = messages("warning.text"),
+            content = Text(messages("available.requestvaluation.warning"))
+        ))
+        @govukButton(Button(content = Text(messages("available.requestvaluation.dvrCheck.startCheck")), href = Some(startCheckUrl), attributes = Map("id" -> "checkcasestab-start-check")))
+
+} else {
+
+    @govukDetails(Details(
+        id = Some("when-you-may-challenge-details"),
+        summary = Text(messages("challengeRules.summary")),
+        content = HtmlContent(detailContent),
+        classes = "govuk-grid-column-two-thirds"
+    ))
+
+    @govukTable(Table(
+        rows = rows,
+        head = Some(Seq(
+          HeadCell(
+            content = Text(messages("property.details.checkcases.table.1"))
+          ),
+          HeadCell(
+            content = Text(messages("property.details.checkcases.table.2"))
+          ),
+          HeadCell(
+            content = Text(messages("property.details.checkcases.table.3"))
+          ),
+          HeadCell(
+            content = Text(messages("property.details.checkcases.table.4"))
+          ),
+          HeadCell(
+            content = Text(messages("property.details.checkcases.table.5"))
+          ),
+          HeadCell(
+            content = Text(messages("property.details.checkcases.table.6"))
+          )
+        )),
+        attributes = Map("id" -> "checkcases-table")
+    ))
+}
+
+<br/>

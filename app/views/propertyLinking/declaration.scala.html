@@ -1,0 +1,240 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import _root_.utils.Formatters
+@import _root_.utils.FrontendComponentHelper.valueWithId
+@import binders.propertylinks._
+@import controllers.propertyLinking.DeclarationVM
+@import config.ApplicationConfig
+@import java.time.format.DateTimeFormatter
+@import actions.propertylinking.requests.LinkingSessionRequest
+@import models._
+@import java.time.LocalDate
+
+@this(govukErrorSummary : GovukErrorSummary, govukWarningText: GovukWarningText, govukCheckboxes: GovukCheckboxes, govukButton : GovukButton, mainLayout: views.html.mainLayout, formWithCSRF: FormWithCSRF, govukSummaryList: GovukSummaryList)
+
+@(model: DeclarationVM)(implicit request: LinkingSessionRequest[_], messages: Messages, config: ApplicationConfig)
+
+@clientSuffix = @{request.ses.clientDetails.fold("")(_ => ".client")}
+
+@isAgent = @{ request.ses.clientDetails.map(_.organisationId) match {
+        case Some(id) => true
+        case _ => false
+    }
+}
+
+@dateFormatter = @{ DateTimeFormatter.ofPattern("d MMMM yyyy") }
+
+@earliestStartDateInPast = @{ LocalDate.now.isAfter(request.ses.earliestStartDate) }
+
+@propertyOwnershipFromDate = @{request.ses.propertyOwnership.flatMap(_.fromDate)}
+
+@propertyLastOccupiedDate = @{request.ses.propertyOccupancy.flatMap(_.lastOccupiedDate)}
+
+@propertyRelationshipCapacityName = @{request.ses.propertyRelationship.map(_.capacity.name)}
+
+@propertyStillOccupied = @{request.ses.propertyOccupancy.exists(_.stillOccupied)}
+
+@propertyOwnedOccupiedKey = @{
+    messages("declaration.checkAnswers.ownershipHeading.builder",
+
+        if(isAgent) messages("declaration.checkAnswers.ownershipHeading.agent")
+        else messages("declaration.checkAnswers.ownershipHeading.ip"),
+
+        request.ses.propertyRelationship.fold(
+            messages("declaration.checkAnswers.ownershipHeading.fallback")
+        )(_.capacity match {
+            case Occupier      => messages("declaration.checkAnswers.ownershipHeading.occupy")
+            case Owner         => messages("declaration.checkAnswers.ownershipHeading.own")
+            case OwnerOccupier => messages("declaration.checkAnswers.ownershipHeading.ownAndOccupy")
+        })
+    )
+}
+
+@lastOccupiedKey = @{propertyRelationshipCapacityName.fold("")(
+    capName => messages(s"declaration.checkAnswers.lastOccupiedDate", messages(s"declaration.checkAnswers.$capName").toLowerCase)
+)}
+
+@strippedFileName = @{
+    request.ses.uploadEvidenceData.fileInfo match {
+        case Some(complete: CompleteFileInfo) => complete.name.replaceAll("^([^-]+)-", "")
+        case _ => ""
+    }
+}
+
+@evidenceType = @{request.ses.uploadEvidenceData.fileInfo.map(_.evidenceType.name)}
+
+@mainLayout(
+    pageTitle = messages("declaration.title"),
+    backUri = Some(controllers.propertyLinking.routes.DeclarationController.back.url),
+    hasErrors = model.form.hasErrors
+) {
+
+    @if(model.form.errors.nonEmpty) {
+        @govukErrorSummary(ErrorSummary(errorList = model.form.errors.asTextErrorLinks, title = Text(messages("error.propertyRepresentation.title"))))
+    }
+
+    <span id="caption" class="govuk-caption-l">@messages("caption.add.property")</span>
+    <h1 id="page-header" class="govuk-heading-l">@messages("declaration.title")</h1>
+
+    @formWithCSRF(action = controllers.propertyLinking.routes.DeclarationController.submit()) {
+        @govukSummaryList(SummaryList(
+            rows = Seq(
+                SummaryListRow(
+                  key = Key(
+                    content = valueWithId(messages("label.address"), "address-heading")
+                  ),
+                    value = Value(
+                        valueWithId(Formatters.capitalisedAddress(model.address), "address-value")
+                    )
+                ),
+                SummaryListRow(
+                    key = Key(
+                        content = valueWithId(messages("declaration.checkAnswers.connectionHeading"), "relationship-heading")
+                    ),
+                    value = Value(
+                        content = valueWithId(propertyRelationshipCapacityName.fold("")(name => messages(s"declaration.checkAnswers.$name")), "relationship-value")
+                    ),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = s"${controllers.propertyLinking.routes.ClaimPropertyRelationshipController.back().url}",
+                                content = Text(messages("declaration.checkAnswers.change")),
+                                visuallyHiddenText = Some(messages("declaration.checkAnswers.connectionHeading")),
+                                attributes = Map("id" -> "relationship-change")
+                            )
+                        )
+                    ))
+                ),
+                if(earliestStartDateInPast){
+                SummaryListRow(
+                    key = Key(
+                        content = valueWithId(messages("declaration.checkAnswers.startDateHeading"), "start-date-heading"),
+                    ),
+                    value = Value(
+                        content = valueWithId(
+                            value = propertyOwnershipFromDate
+                                .fold(messages("declaration.checkAnswers.startDate.onOrBefore",
+                                        request.ses.earliestStartDate.format(dateFormatter)))
+                                    (_.format(dateFormatter)),
+                            id = "start-date-value")
+                    ),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = s"${controllers.propertyLinking.routes.ClaimPropertyOwnershipController.showOwnership().url}",
+                                content = Text(messages("declaration.checkAnswers.change")),
+                                visuallyHiddenText = Some(messages("declaration.checkAnswers.startDateHeading")),
+                                attributes = Map("id" -> "start-date-change")
+                            )
+                        )
+                    ))
+                )} else SummaryListRow(),
+                if(earliestStartDateInPast){
+                    SummaryListRow(
+                        key = Key(
+                            content = valueWithId(propertyOwnedOccupiedKey, "still-owned-heading")
+                        ),
+                        value = Value(
+                            content = valueWithId(
+                                if (propertyStillOccupied) messages("declaration.checkAnswers.propertyOwnership.yes")
+                                else messages("declaration.checkAnswers.propertyOwnership.no"),
+                                "still-owned-value")
+                        ),
+                        actions = Some(Actions(
+                            items = Seq(
+                                ActionItem(
+                                    href = s"${controllers.propertyLinking.routes.ClaimPropertyOccupancyController.showOccupancy().url}",
+                                    content = Text(messages("declaration.checkAnswers.change")),
+                                    attributes = Map("id" -> "still-owned-change"),
+                                    visuallyHiddenText = Some(propertyOwnedOccupiedKey)
+                                )
+                            )
+                        ))
+                    )
+                } else SummaryListRow(),
+                if (earliestStartDateInPast && !propertyStillOccupied){
+                SummaryListRow(
+                    key = Key(
+                        content = valueWithId(lastOccupiedKey, "end-date-heading")
+                    ),
+                    value = Value(
+                        content =
+                            valueWithId(propertyLastOccupiedDate.fold("")(_.format(dateFormatter)), "end-date-value")
+                    ),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = s"${controllers.propertyLinking.routes.ClaimPropertyOccupancyController.showOccupancy().url}",
+                                content = Text(messages("declaration.checkAnswers.change")),
+                                visuallyHiddenText = Some(lastOccupiedKey),
+                                attributes = Map("id" -> "end-date-change")
+                            )
+                        )
+                    ))
+                )} else SummaryListRow(),
+                SummaryListRow(
+                    key = Key(
+                        content = valueWithId(messages("declaration.checkAnswers.evidenceType.heading"), "evidence-heading")
+                    ),
+                    value = Value(
+                        content =
+                            valueWithId(
+                                s"""<p class="govuk-body">${evidenceType.fold("")(evType => messages(s"uploadOtherEvidence.evidenceTypes.$evType"))}</p><p class="govuk-body">$strippedFileName</p>""", "evidence-value")
+                    ),
+                    actions = Some(Actions(
+                        items = Seq(
+                            ActionItem(
+                                href = s"${controllers.propertyLinking.routes.ChooseEvidenceController.show().url}",
+                                attributes = Map("id" -> "evidence-change"),
+                                content = Text(messages("declaration.checkAnswers.change")),
+                                visuallyHiddenText = Some(messages("declaration.checkAnswers.evidenceType.heading"))
+                            )
+                        )
+                    ))
+                )
+            ).filterNot(_ == SummaryListRow()),
+            attributes = Map("id" -> "checkYourAnswers")
+        ))
+
+        <h2 class="govuk-heading-m">@messages("label.declaration")</h2>
+
+        @govukWarningText(WarningText(
+            iconFallbackText = messages("warning.text"),
+            content = Text(messages("declaration.p.3"))
+        ))
+
+        @govukCheckboxes(Checkboxes(
+            idPrefix = Some("declaration"),
+            name = "declaration",
+            items = Seq(
+                CheckboxItem(
+                    content = if (isAgent) Text(messages("declaration.p.agent")) else Text(messages("declaration.p.ip")),
+                    value = "true"
+                )
+            ),
+            errorMessage =  { model.form.error("declaration").map{ error =>
+                ErrorMessage(content = Text(messages(error.message)))
+            }}
+        ))
+
+        @govukButton(Button(
+            content = Text(messages("declaration.button")),
+            attributes = Map("id" -> "confirmAndSend")
+        ))
+
+        }
+}

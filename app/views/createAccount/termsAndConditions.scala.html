@@ -1,0 +1,111 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import actions.requests.BasicAuthenticatedRequest
+@import uk.gov.hmrc.govukfrontend.views.html.components.implicits._
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import config.ApplicationConfig
+@import controllers.propertyLinking.ClaimPropertyOwnershipVM
+@import helpers._
+
+@this(mainLayout: views.html.mainLayout)
+
+@()(implicit request: Request[_], messages: Messages, config: ApplicationConfig)
+
+
+@mainLayout(
+    pageTitle = messages("termsAndConditions.title"),
+) {
+
+            <h1 class="govuk-heading-xl">@messages("termsAndConditions.title")</h1>
+            <p class="govuk-body">@Html(messages("termsAndConditions.p1"))</p>
+            <p class="govuk-body">@messages("termsAndConditions.p2")</p>
+            <p class="govuk-body">@messages("termsAndConditions.p3")</p>
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.publication-use.h2")</h2>
+            <p class="govuk-body">@messages("termsAndConditions.publication-use.p1")</p>
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.onward-disclosure.h2")</h2>
+            <p class="govuk-body">@messages("termsAndConditions.onward-disclosure.p1")</p>
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.user-definition.h2")</h2>
+            <p class="govuk-body">@messages("termsAndConditions.user-definition.p1")</p>
+             <ul class="govuk-body">
+                 <li>@messages("termsAndConditions.user-definition.li1")</li>
+                 <li>@messages("termsAndConditions.user-definition.li2")</li>
+                 <li>@messages("termsAndConditions.user-definition.li3")</li>
+            </ul>
+
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.interested-person.h2")</h2>
+            <p class="govuk-body">@messages("termsAndConditions.interested-person.p1")</p>
+            <ul class="govuk-body">
+                <li>@Html(messages("termsAndConditions.interested-person.li1"))</li>
+                <li>@Html(messages("termsAndConditions.interested-person.li2"))</li>
+                <li>@Html(messages("termsAndConditions.interested-person.li3"))</li>
+            </ul>
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.qualifying-connection.h2")</h2>
+            <p class="govuk-body">@messages("termsAndConditions.qualifying-connection.p1")</p>
+            <ul class="govuk-body">
+                <li>@messages("termsAndConditions.qualifying-connection.li1")</li>
+                <li>@messages("termsAndConditions.qualifying-connection.li2")</li>
+            </ul>
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.check.meaning.h2")</h2>
+            <p class="govuk-body">@messages("termsAndConditions.check.meaning.p1")</p>
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.checking-and-challenging.h2")</h2>
+            <p class="govuk-body">@messages("termsAndConditions.checking-and-challenging.p1")</p>
+            <ul class="govuk-body">
+                <li>@messages("termsAndConditions.checking-and-challenging.li1")</li>
+                <li>@messages("termsAndConditions.checking-and-challenging.li2")</li>
+                <li>@messages("termsAndConditions.checking-and-challenging.li3")</li>
+                <li>@messages("termsAndConditions.checking-and-challenging.li4")</li>
+            </ul>
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.use-information.h2")</h2>
+            <p class="govuk-body">@messages("termsAndConditions.use-information.p1")</p>
+            <ul class="govuk-body">
+                <li>@messages("termsAndConditions.use-information.li1")</li>
+                <li>@messages("termsAndConditions.use-information.li2")</li>
+                <li>@messages("termsAndConditions.use-information.li3")</li>
+                <li>@messages("termsAndConditions.use-information.li4")</li>
+                <li>@messages("termsAndConditions.use-information.li5")</li>
+                <li>@messages("termsAndConditions.use-information.li6")</li>
+            </ul>
+            <p class="govuk-body">@messages("termsAndConditions.use-information.p2")</p>
+            <ul class="govuk-body">
+                <li>@messages("termsAndConditions.use-information.li7")</li>
+                <li>@messages("termsAndConditions.use-information.li8")</li>
+                <li>@messages("termsAndConditions.use-information.li9")</li>
+                <li>@messages("termsAndConditions.use-information.li10")</li>
+           </ul>
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.crown-copyright.h2")</h2>
+            <p class="govuk-body">@messages("termsAndConditions.crown-copyright.p1")</p>
+
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.amendments.h2")</h2>
+            <p class="govuk-body">@messages("termsAndConditions.amendments.p1")</p>
+
+            <h2 class="govuk-heading-m">@messages("termsAndConditions.using-service.h2")</h2>
+            <p class="govuk-body">@Html(messages("termsAndConditions.using-service.p1"))</p>
+            <p class="govuk-body">@Html(messages("termsAndConditions.using-service.p2"))</p>
+            <p class="govuk-body">@Html(messages("termsAndConditions.using-service.p3"))</p>
+
+
+}

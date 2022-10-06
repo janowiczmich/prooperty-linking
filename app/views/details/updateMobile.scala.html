@@ -1,0 +1,68 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import helpers._
+@import _root_.template.FormSupport._
+@import config.ApplicationConfig
+@import controllers.manageDetails.UpdateDetailsVM
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import uk.gov.hmrc.govukfrontend.views.html.components.implicits._
+
+@this(mainLayout: views.html.mainLayout, govukButton: GovukButton, govukInput: GovukInput, formWithCSRF: FormWithCSRF, govukErrorSummary : GovukErrorSummary)
+
+@(model: UpdateDetailsVM)(implicit request: Request[_], messages: Messages, config: ApplicationConfig)
+
+@mainLayout(
+    pageTitle = Messages("updateMobile.title"),
+    backUri = Some(controllers.manageDetails.routes.ViewDetails.show.url),
+    hasErrors = model.form.hasErrors
+) {
+
+    @formErrorSummary(model.form)(govukErrorSummary)
+
+    <h1 class="govuk-heading-l">@messages("updateMobile.title")</h1>
+
+    @formWithCSRF(controllers.manageDetails.routes.UpdatePersonalDetails.updateMobile()) {
+
+        @govukInput(Input(
+            value = model.form("phone").value.orElse(model.currentDetails.phone2),
+            id = "phone",
+            name = "phone",
+            classes = "form-control govuk-input--width-20",
+            label = Label(
+                isPageHeading = false,
+                classes = "govuk-label--m",
+                content = Text(Messages("label.updateMobile"))
+            ),
+            hint = Some(Hint(
+                content = Text(Messages("details.edit.mobile.help"))
+            )),
+            errorMessage = model.form("phone").error.map(err => ErrorMessage(content = Text(messages(err.message, err.args:_*))))
+        ))
+
+        <div class="govuk-button-group">
+            @govukButton(Button(
+                content = Text(messages("link.update")),
+                attributes = Map("id" -> "update")
+            ))
+            @govukButton(Button(
+                href = Some(controllers.manageDetails.routes.ViewDetails.show.url),
+                content = Text(messages("link.cancel")),
+                classes = "govuk-button--secondary"
+            ))
+        </div>
+    }
+}

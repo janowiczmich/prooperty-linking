@@ -1,0 +1,1647 @@
+project.header=VOA Property Linking
+service.name=Check and challenge your business rates valuation
+link.home=Home
+link.logout=Sign out
+link.login=Login
+link.register=Register
+label.phase.banner.text=This is a new service – your <a href="{0}" id="betaFeedback" class="govuk-link">feedback</a> will help us to improve it.
+link.feedback=Feedback
+label.search.for=Search for
+label.Appoint=Appoint
+main.cookies=Cookies
+footer.termsandconditions=Terms and conditions
+link.privacyPolicy=Privacy
+common.titleErrorPrefix=Error:
+common.titleSuffix=- Valuation Office Agency - GOV.UK
+errors.heading.title=There is a problem
+navigation.your.details=Your details
+heading.terms.of.use=Terms of use
+caption.add.property= Add a property
+
+# Page sizes
+pageSize.showing = Showing
+pageSize.properties = properties per page
+pageSize.messages = messages per page
+
+#START PAGE OLD JOURNEY
+start.heading.register.old=Register to use this service
+start.heading.registration.old=Registration
+start.registration.p.1.old=If you’re a returning user, you can <a href="{0}" class="govuk-link">sign in</a> to use this service.
+start.registration.p.2.old=If you’ve already registered for this service and other people from your business want to register, you need to <a href="{0}" rel="external" class="govuk-link">add them to your business Government Gateway account</a>.
+start.registration.p.3.old=To register for this service you’ll need to verify your identity by providing your National Insurance number, date of birth and details from at least one of the following:
+start.registration.enrolment.p.3.old=To register for this service you’ll need to verify your identity by providing your National Insurance number or UK passport number and your postcode.
+start.registration.youNeed.1.old=payslips
+start.registration.youNeed.2.old=UK passport
+start.registration.youNeed.3.old=P60
+start.registration.p.5.old=You should allow approximately 15 minutes without interruption to complete the registration process.
+start.registration.IdontHave.old=I don’t have these details
+start.registration.IdontHave.answer.old=<p>If you don’t have the details that you need to register (for example, you haven’t been assigned a National Insurance number, or you don’t have a passport, P60 or payslip, you’ll need to <a class="govuk-link" href="https://www.gov.uk/contact-voa">contact the Valuation Office Agency (VOA).</a></p>
+start.registration.enrolment.hyperlink.old=<a class="govuk-link" href="{0}">I want to register using my existing Government Gateway account</a>
+start.registration.individual.hyperlink.old=<a class="govuk-link" href="{0}?accountType={1}&continue={2}&origin={3}">Individual (you represent yourself)</a> – you won’t be able to add others to this account
+start.registration.organisation.hyperlink.old=<a class="govuk-link" href="{0}?accountType={1}&continue={2}&origin={3}">Organisation (you represent a business, charity or other organisation)</a> – you’ll be able to add others to this account
+
+start.heading.agents=Agents
+start.agents.p.1=If you plan to act as an agent on behalf of another business, you’ll be able to indicate this during the registration process.
+start.register=Register now
+
+#START PAGE NEW CONTENT
+start.heading.register=Register to check and challenge your business rates valuation
+start.registration.p.1=Register for this service to:
+start.registration.bp.1=check your property details
+start.registration.bp.2=challenge your valuation
+start.registration.bp.3=appoint an agent to act on your behalf
+start.registration.p.2=<a href="{0}" class="govuk-link">Sign in</a> if you have already created an account for this service.
+start.registration.p.3=If other people from your organisation need an account and you’ve already created one, you will need to <a href="{0}" rel="external" class="govuk-link">add them to your business Government Gateway account</a>.
+start.registration.button=Start now
+start.registration.h4=Before you start
+start.registration.p.4=Creating an account takes around 15 minutes.
+start.registration.p.5=You’ll need your National Insurance number and two of:
+start.registration.bp.4=a payslip or P60 from your employer
+start.registration.bp.5=a UK passport
+start.registration.bp.6=Self Assessment details
+start.registration.bp.7=Tax Credit details
+start.registration.bp.8=Credit reference details
+start.registration.bp.9=a Northern Ireland driving licence
+start.registration.p6=If you don’t have these details you’ll need to <a class="govuk-link" href="https://www.gov.uk/contact-voa">contact the Valuation Office Agency (VOA).</a>
+start.registration.IdontHave=I don’t have a National Insurance number
+start.registration.IdontHave.answer=If you don’t have these details you’ll need to <a class="govuk-link" href="https://www.gov.uk/contact-voa">contact the Valuation Office Agency (VOA).</a>
+
+#DO YOU HAVE GOVERNMENT GATEWAY ACCOUNT
+govGateway.heading=Do you already have a Government Gateway account?
+govGateway.y=Yes
+govGateway.y.helpText=You''ll need your Government Gateway user ID and password
+govGateway.n=No
+govGateway.n.helpText=You''ll create a new Government Gateway account
+govGateway.button=Continue
+error.govGateway.title=There is a problem
+
+#SELECT ACCOUNT TYPE
+accountType.heading=What type of account would you like to create?
+accountType.individual=Individual
+accountType.individual.helpText=You represent yourself. You won’t be able to add others to this account.
+accountType.orgOrAgent=Organisation or agent
+accountType.orgOrAgent.helpText=You represent a business, charity or other organisation. You can add other people from your organisation to this account.
+accountType.button=Continue
+error.accountType.title=There is a problem
+
+
+label.login=Sign in
+label.register=Register
+label.action=Action
+app.common.errorSummaryLabel            = The following errors were identified on this page.
+
+label.appoint.error=Failed to appoint agent to all properties
+error.transaction=try again
+
+
+#PROPERTY LINKING STATUSES
+propertyLinkingStatus.ADDED=Approved
+propertyLinkingStatus.APPROVED=Approved
+propertyLinkingStatus.PENDING=Pending
+propertyLinkingStatus.DECLINED=Declined
+propertyLinkingStatus.REVOKED=Revoked
+propertyLinkingStatus.MORE_EVIDENCE_REQUIRED=More evidence required
+
+#WIZARD
+label.wizard.title=Is your business registered for this service?
+label.wizard.businessHasRegistered=Is your business already registered for this service?
+businessHasRegistered.true=Yes
+businessHasRegistered.false=No
+label.wizard.givenGGDetails=Have you been given Government Gateway sign in details to use, by someone else in your business?
+help.wizard.givenGGDetails=You need a Government Gateway ID to register for this service. If someone else has already registered your business, they’ll need to add you to the business’s Government Gateway account and provide you with your personal Government Gateway ID and password.
+givenGGDetails.true=Yes
+givenGGDetails.false=No
+label.wizard.existingGGAccount=Do you have an existing Government Gateway account that you’d like to use to register your business?
+help.wizard.existingGGAccount=If you don’t have a Government Gateway account that you’d like to use for this service, you can create one during the registration process.
+
+existingGGAccount.true=Yes
+existingGGAccount.false=No
+
+#WIZARD BEFORE YOU START
+heading.authenticationWizard.beforeYouRegister=What you need to do next
+
+authenticationWizard.beforeYouRegisterA.title=Sign in using Government Gateway
+authenticationWizard.p1.beforeYouRegisterA=To complete your registration you need to:
+authenticationWizard.beforeYouRegisterA.l1=sign in with the Government Gateway details that you’ve been given
+authenticationWizard.beforeYouRegisterA.l2=verify your identity
+
+authenticationWizard.beforeYouRegisterC.title=Sign in to complete registration
+authenticationWizard.p1.beforeYouRegisterC=To complete your registration you need to:
+authenticationWizard.beforeYouRegisterC.l1=sign in with your existing Government Gateway details
+authenticationWizard.beforeYouRegisterC.l2=verify your identity
+authenticationWizard.beforeYouRegisterC.l3=register your business
+
+authenticationWizard.beforeYouRegisterD.title=Complete registration using Government Gateway
+authenticationWizard.p1.beforeYouRegisterD=To complete your registration you need to:
+authenticationWizard.beforeYouRegisterD.l1=create a Government Gateway account (you can do this on the next page)
+authenticationWizard.beforeYouRegisterD.l2=verify your identity
+authenticationWizard.beforeYouRegisterD.l3=register your business
+
+
+heading.authenticationWizard.alreadyRegistered=Your business has already been registered
+heading.authenticationWizard.alreadyRegistered.p1=As your business has already registered, you’ll need to ask the person who created the Government Gateway account to add you to the account. You will then be given your own personal ID and password to access the service.
+heading.authenticationWizard.alreadyRegistered.p2=Once you have the details, you’ll be able to continue to <a href="{0}" class="govuk-link">register for the service</a>.
+heading.authenticationWizard.existingGGAccount=Register with an existing Government Gateway account
+
+heading.authenticationWizard.existingGGAccount.p1=There are 3 types of Government Gateway account; Individual, Organisation and Agent.
+heading.authenticationWizard.existingGGAccount.p2=If you have an existing Organisation account for the business, you can use it to register for the VOA’s service. You won’t be able to use an Individual or Agent account to register.
+label.wizard.useExistingGGAccount=Do you want to use an existing Organisation Government Gateway account?
+useExistingGGAccount.true=Yes
+useExistingGGAccount.false=No
+
+authenticationWizard.p2.beforeYouRegister=You’ll also need to verify your identity, by providing your National Insurance number, date of birth and details from at least 2 of the following:
+authenticationWizard.p3.beforeYouRegister=Once your identity has been verified, you’ll be able to register your business.
+beforeYouRegister.summary.question=I want to register as an agent
+beforeYouRegister.summary.answer=<p>To register as an agent, you first need to follow the registration process to register your own business. You’ll be able to indicate during the registration process that you want to act as an agent.</p><strong>Once you’ve registered</strong><p>You’ll find your agent code displayed in your dashboard. You’ll need to give this to your client so that they can appoint you as their agent.</p><p>You can’t register your client’s business on their behalf.</p>
+
+beforeYouRegister.summary.question2=I want to appoint an agent to represent my business
+beforeYouRegister.summary.answer2=<p>You first need to follow the registration process to register your own business. Your agent can’t register your business on your behalf.</p><strong>Once you’ve registered</strong><p>Your agent will be assigned an agent code once they’ve registered. You’ll need to enter their agent code in order to appoint them. You can do this by going to the ‘Manage agents’ section in your dashboard.</p>
+
+#POST REGISTRATION PAGE
+ggRegistration.title=You’ve created a Government Gateway account for your business
+ggRegistration.p.1=We’ll ask you to verify your identity and confirm that you have the right to act on behalf of your business.
+
+#BETA LOGIN
+betaLogin.title=Private beta sign in
+betaLogin.password=Password
+
+#LOCKED OUT
+lockedOut.title=Locked out
+lockedOut.p.1=You have entered the wrong password too many times. You are now locked out for 24 hours. Please call 03000 501 501 for help.
+
+#CREATE INDIVIDUAL ACCOUNT
+createAccount.individual.title=Your contact details
+createAccount.individual.p.1=You now need to verify your identity and confirm that you have the right to act on behalf of your business. You should provide your contact details and not the contact details for your agent.
+createAccount.individual.heading.details=Your contact details
+label.createAccount.email=Email address
+label.createAccount.email.help=This should be your work email address and not the email address for your agent. The email address should be monitored.
+label.createAccount.phone1=Telephone number
+label.createAccount.tradingName.help=Content to come.
+label.createAccount.phone1.help=This should be your own work telephone number.
+createAccount.individual.verify.heading=Your identification details
+createAccount.individual.verify.p.1=Please verify your identity for security and data protection purposes.
+label.createAccount.fname=First name
+label.createAccount.lname=Last name
+label.createAccount.mobilePhone=Mobile Number
+label.createAccount.dob=Date of birth
+label.dob=Date of birth
+dob.day.label=Day
+dob.month.label=Month
+dob.year.label=Year
+label.createAccount.nino.nino=National Insurance number
+label.createAccount.nino=National Insurance number
+error.nino.invalid=Enter a valid National Insurance number
+dropdown.createAccount.nino=I don''t have a National Insurance number
+dropdown.createAccount.nino.p1=You need to provide your National Insurance number to register for this service. You can <a href="https://www.gov.uk/apply-national-insurance-number" class="govuk-link">apply for a National Insurance number</a> if you don''t already have one.
+dropdown.createAccount.nino.p2=If you don''t have a National Insurance number and you are not eligible to apply for one, you should contact us.
+dropdown.createAccount.nino.emailHeading=Email
+dropdown.createAccount.nino.telephoneHeading=Telephone
+dropdown.createAccount.nino.email=<a class="govuk-link" href="mailto:ccaservice@voa.gov.uk">ccaservice@voa.gov.uk</a>
+dropdown.createAccount.nino.telephone=03000 501 501
+dropdown.createAccount.nino.opening=Opening hours: 8:30am to 5:00pm Monday to Friday. Closed on bank holidays.
+dateOfBirth.label=Date of birth
+label.createAccount.confirmedEmail=Confirm email address
+label.createAccount.phone2=Mobile number
+label.createAccount.phone2.help=This should be your own work mobile number
+help.date=For example, 28 4 2017
+help.date.override=For example, {0}
+hint.dateOfBirth=For example, 20 3 1976
+hint.nino=It’s on your National Insurance card, benefit letter, payslip or P60. For example, QQ123456C.
+error.emailsMustMatch=Email addresses must match. Check them and try again
+error.invalidEmail=Enter a valid email address
+error.invalidPostcode=Enter a real postcode
+error.postcode.missing=Enter a valid postcode
+error.title=There is a problem
+error.phoneNumber.required=Enter a telephone number
+error.phoneNumber.invalidLength=Telephone number must be between 11 and 20 characters
+error.phoneNumber.invalidFormat=Enter a telephone number, like 01623 960 001 or +44 0808 157 0192
+
+createAccount.p1=You’ll need to provide information about your business in order to complete the registration process.
+label.createAccount.postcode.help=This should be your preferred postal contact address for your business. <br> <br> You can search for an address in England, Scotland and Wales. If your property is in Northern Ireland or outside of the UK, you’ll need to enter it manually.
+
+#IDENTITY VERIFICATION
+startIv.title=Provide further identification
+startIv.p.1=As part of our security procedures, we now need to ask you some more questions to confirm your identity.
+startIv.p.2=You’ll be asked to provide details from at least 2 of the following:
+startIv.l1=passport
+startIv.l2=P60
+startIv.l3=payslip (PAYE)
+identityVerification.title=Identity verification
+failedIdentityVerification.title=Identity verification failed
+failedIdentityVerification.p.1=We’re unable to verify your identity because {0}.
+failedIdentityVerification.failureReason.incomplete=you have not answered all the questions
+failedIdentityVerification.failureReason.failedMatching=the details you have given do not match our records
+failedIdentityVerification.failureReason.failedDirectorCheck=the details you have given do not match the director records from Companies House
+failedIdentityVerification.failureReason.insufficientEvidence=you have not given us enough information
+failedIdentityVerification.failureReason.lockedOut=you answered questions incorrectly too many times. You will need to wait 24 hours before you can try again
+failedIdentityVerification.failureReason.userAborted=you have chosen not to continue
+failedIdentityVerification.failureReason.timeout=you have been timed out due to inactivity
+failedIdentityVerification.failureReason.technicalIssue=of a technical issue with this service
+failedIdentityVerification.p.2=You can either <a class="govuk-link" href="{0}">try again</a> or contact us to continue your registration.
+failedIv.telephone.england=Telephone
+failedIv.telephone.england.number=03000 501 501
+failedIv.email=Email
+failedIv.emailaddress=<a class="govuk-link" href="mailto:{0}">ccaservice@voa.gov.uk</a>
+failedIv.telephone.openingHours=Opening hours: 8:30am to 5:00pm Monday to Friday. Closed on bank holidays.
+heading.whatNext=What happens next
+link.createGroupAccount=Register your business
+
+#INDIVIDUAL ACCOUNT CREATED; GROUP ALREADY KNOWN
+groupAlreadyExists.title={0} has already registered.
+groupAlreadyExists.addedToGroup=You’ve been added to their customer record.
+account.confirmation.disclaimer=Information provided using this service is only for the purposes of checking and, if necessary, challenging and appealing the rating of non-domestic property. Use for any other purpose is a breach of the <a class="govuk-link" href="terms-and-conditions">terms and conditions</a> of service. Unlawful access may be prosecuted under the relevant legislation, including the Computer Misuse Act 1990 or the Fraud Act 2006.
+
+#TermsAndConditions
+termsAndConditions.title=Terms and conditions
+termsAndConditions.p1=These terms and conditions govern your use of the Valuation Office Agency&#39;s (VOA) ‘Check and challenge your business rates valuation’ (CCBRV) online service, as governed by the laws of England. Please read these terms and conditions carefully as they affect your rights and liabilities in the law.
+termsAndConditions.p2=These terms and conditions are not a full and authoritative statement of the law that applies.
+termsAndConditions.p3=By using this service, you agree to these terms and conditions.
+termsAndConditions.publication-use.h2=Purposes of publication and use
+termsAndConditions.publication-use.p1=Publication of this information by the VOA and its use is restricted to permit a user to check, challenge and appeal a Non Domestic Rating (NDR) valuation they have an interest in.
+termsAndConditions.onward-disclosure.h2=Onward Disclosure
+termsAndConditions.onward-disclosure.p1=Disclosure to a third party is prohibited.
+termsAndConditions.user-definition.h2=Definition of a user
+termsAndConditions.user-definition.p1=For these terms the user is hereby defined to include:
+termsAndConditions.user-definition.li1=an interested person (as defined below);
+termsAndConditions.user-definition.li2=the Crown Estate Commissioners
+termsAndConditions.user-definition.li3=a representative authorised by an interested person for the stated purposes
+termsAndConditions.interested-person.h2=Definition of an interested person
+termsAndConditions.interested-person.p1=This means:
+termsAndConditions.interested-person.li1=the occupier;
+termsAndConditions.interested-person.li2=any other person (other than a mortgagee not in possession) having in any part of the hereditament either a legal estate or an equitable interest such as would entitle him (after the cessation of any prior interest) to possession of the hereditament or any part of it; and
+termsAndConditions.interested-person.li3=any person having a qualifying connection with the occupier or a person described
+termsAndConditions.qualifying-connection.h2=Definition of a qualifying connection
+termsAndConditions.qualifying-connection.p1=A person shall be treated as having a qualifying connection with another:
+termsAndConditions.qualifying-connection.li1=where both persons are companies, and one is a subsidiary of the other; or both are subsidiaries of the same company; or
+termsAndConditions.qualifying-connection.li2=where only one person is a company, the other person (the ‘second person’) has such an interest in that company as would, if the second person were a company, result in its being the holding company of the other.
+termsAndConditions.check.meaning.h2=Meaning of check
+termsAndConditions.check.meaning.p1=‘Check’ has the meaning given in regulation 4A to 4F of the Non-Domestic Rating (Alteration of Lists and Appeals) (England) Regulations 2009, as amended by the Non-Domestic Rating (Alteration of Lists and Appeals) (England) (Amendment) Regulations 2017.
+termsAndConditions.checking-and-challenging.h2=Checking and challenging valuations
+termsAndConditions.checking-and-challenging.p1=A user can
+termsAndConditions.checking-and-challenging.li1=view a valuation and request to see factual information held by the VOA of the user’s assessment
+termsAndConditions.checking-and-challenging.li2=check the valuation of assessments,
+termsAndConditions.checking-and-challenging.li3=confirm the accuracy of facts used in relation to the assessment, provide missing facts and suggest amendments to facts held
+termsAndConditions.checking-and-challenging.li4=challenge the valuation of assessments within 4 months of a check being completed
+termsAndConditions.use-information.h2=Use of information provided
+termsAndConditions.use-information.p1=These terms and conditions do not cover the use of:
+termsAndConditions.use-information.li1=the information other than for the purposes detailed
+termsAndConditions.use-information.li2=personal data in the information
+termsAndConditions.use-information.li3=information that has neither been published nor disclosed under information access legislation (including the Freedom of Information Acts) by or with the consent of the Information Provider
+termsAndConditions.use-information.li4=departmental or public sector organisation logos, crests and the Royal Arms except where they form an integral part of a document or dataset
+termsAndConditions.use-information.li5=third party rights the Information Provider is not authorised to license
+termsAndConditions.use-information.li6=information subject to other intellectual property rights
+termsAndConditions.use-information.p2=All users must ensure that
+termsAndConditions.use-information.li7=they do not use the information in a way that suggests any official status or that the VOA endorses them or their use of the information
+termsAndConditions.use-information.li8=they do not use the information in a way which is likely to mislead others or misrepresent the information or its source
+termsAndConditions.use-information.li9=their use of the information does not breach the Data Protection Act 1998 or the Privacy and Electronic Communications (EC Directive) Regulations 2003
+termsAndConditions.use-information.li10=The user will delete this information when they no longer have a need associated with the stated purposes to hold the information
+termsAndConditions.crown-copyright.h2=Crown Copyright
+termsAndConditions.crown-copyright.p1=The Database and Data used to provide this service are protected by Crown Copyright and Crown Database rights. A user’s permission to use those copyright works is limited to the rights expressly conferred by these terms and conditions.
+termsAndConditions.amendments.h2=Amendments to terms and conditions
+termsAndConditions.amendments.p1=We may update these terms and conditions from time to time and by continuing to use the service, you confirm your continued agreement to these terms and conditions of use.
+termsAndConditions.using-service.h2=Using this service
+termsAndConditions.using-service.p1=We make every effort to ensure that the information provided is accurate. However, the VOA cannot accept any liability for the accuracy of this information, and those who use it do so at their own risk. We cannot guarantee that the service will be fault free. If there is a problem with the service, you should use the &#39;Get help with this form&#39; link at the bottom of each page and we will come back to you as soon as we can.
+termsAndConditions.using-service.p2=The VOA accepts no responsibility for any loss, disruption or damage to your data or computer system while using this service.
+termsAndConditions.using-service.p3=The VOA reserves the right to remove access to the service to an individual or organisation if it believes the service has been misused or there has been a failure to comply with published guidance or these terms and conditions.
+
+#CREATE GROUP ACCOUNT
+createAccount.group.title=Your business details
+label.createAccount.companyName=Business name
+label.createAccount.businessEmail=Business email address
+label.createAccount.confirmedBusinessEmail=Confirm business email address
+label.createAccount.businessPhone=Business telephone number
+label.createAccount.isSmallBusiness=Is this a small business?
+isSmallBusiness.true=Yes
+isSmallBusiness.false=No
+isSmallBusiness.details.question=What is a small business?
+isSmallBusiness.details.answer=A small business is one that has employed fewer than 10 people on average in the last 12 months. In that same period, it must also have had a turnover or balance sheet of less than £2 million.
+label.createAccount.isAgent=Do you want to act as an agent on behalf of another business?
+isAgent.true=Yes
+isAgent.false=No
+isAgent.details=If you want to represent another business (either as a professional surveyor, an accountant, friend or relative), we will give you a unique agent code. You will need to give this code to that business so they can appoint you to speak for them.
+createAccount.group.details.header=I’m not a business
+createAccount.group.details.content=If you are a non-commercial organisation such as a community venture hiring out rooms, village hall, trust or a charity, you should create an account in the same way as you would for a business. This also applies for any other property that is liable for business rates, such as beach huts and stables.
+
+#ACCOUNT CREATED
+account.confirmation.title=You’ve successfully registered your business.
+account.confirmation.heading=You’ve successfully registered for this service.
+account.confirmation.addToGG=If anyone else wants to register on behalf of the business, you’ll first need to <a class="govuk-link" href="{0}" rel="external">add them to your Government Gateway account</a> as an administrator or an assistant.
+account.confirmation.youCan=You can now manage your properties.
+link.dashboard=Go to your dashboard
+link.return.home=Return to your home page
+link.go.home=Go to home page
+link.go.back=Go back
+link.go.back.property=Go back to this property
+createAccount.group.details.header.agent=I’m registering as an agent
+createAccount.group.details.content.agent=You’ll need to provide information about your own business here, not your client’s business.
+createAccount.group.details.header.multipleAddress=There’s more than one address for my business
+createAccount.group.details.content.multipleAddress=You should enter the address that you want any business correspondence to be sent to.
+createAccount.business.email.help=This should be your email address and not your agent’s. The email address should be monitored.
+
+registration.successful=Registration successful
+registration.confirmation.voa.personal.id.number=Your VOA personal ID number
+registration.confirmation.agent.code=Your Agent code
+registration.confirmation.email.sent.to=We have sent these details to <strong>{0}</strong>
+registration.confirmation.whatNext.p1=Next time you sign in to the service, use your Government Gateway details.
+registration.confirmation.whatNext.p2=If you need to reset your password, you'll need to provide your VOA personal ID number.
+registration.confirmation.whatNext.p3=Give your Agent code to your client so they can appoint you to act for them.
+registration.confirmation.whatNext.p4=If anyone else wants to register on your behalf of the organisation, you’ll need to <a class="govuk-link" href="{0}" rel="external noopener noreferrer">add them to your Government Gateway account</a>.
+registration.confirmation.termsOfUse.p=Information provided using this service is only for the purpose of checking and, if necessary, challenging and appealing the rating of non-domestic property. Use for any other purpose is a breach of the <a class="govuk-link" href="terms-and-conditions">terms and conditions</a> of service. Unlawful access may be prosected under the relevant legisation, including the Computer Misuse Act 1990 or the Fraud Act 2006.
+
+#MIGRATED ENROLMENT USER
+account.migrated.welcome=Welcome back
+account.migrated.personalId=Your VOA personal ID is:
+account.migrated.p1=As part of the ongoing improvements to the check and challenge service, we''ve given you a personal ID number. You should keep a note of this number in a safe place as you will need it if you want to reset your password.
+
+account.confirmation.alreadyRegistered.youCan=You can now:
+account.confirmation.alreadyRegistered.youCan.1=add properties to the business’s customer record
+account.confirmation.alreadyRegistered.youCan.2=authorise an agent to act on behalf of the business
+
+#DASHBOARD TABS
+dashboard.agentCode=Agent code: {0}
+dashboard.voaPersonalID=Your VOA personal ID is:
+dashboard.notYou=Not you?
+dashboard.unreadMessages=You have <a class="govuk-link" href={0}>({1}) unread messages</a>
+dashboard.unreadMessages.none=You have no unread messages
+dashboard.tab.clientProperties=Client properties
+dashboard.tab.myProperties=My properties
+dashboard.tab.manageAgents=Agents
+dashboard.tab.drafts=Drafts
+dashboard.tab.editDetails=My details
+dashboard.tab.messages=Messages
+
+#DASHBOARD HOME
+dashboard.home.title=Dashboard home
+dashboard.home.properties=Properties
+dashboard.home.manageProperties.link=Manage properties
+dashboard.home.manageProperties.text=View and update your detailed property information.
+dashboard.home.searchProperties.link=Claim properties
+dashboard.home.searchProperties.text=Find and add properties to your customer record.
+dashboard.home.management=Management
+dashboard.home.manageAgents.link=Manage agents
+dashboard.home.manageAgents.text=Give/remove permission for agents to complete check and challenge forms for you.
+dashboard.home.clients=Client
+dashboard.home.clients.link=Manage clients
+dashboard.home.clients.text=View property representation requests.
+dashboard.home.editDetails.link=My details
+dashboard.home.editDetails.text=View and update your personal details
+dashboard.home.cases=Cases
+dashboard.home.draft.cases=Draft cases {0}
+dashboard.home.draft.cases.text=Continue editing checks that have not yet been submitted.
+dashboard.home.plannedFeatures=Coming soon
+dashboard.home.usefulLinks=Useful information
+dashboard.home.addAnotherUser.link=I want to add another user from my business
+dashboard.home.addAnotherUser.text=To add another user, you’ll firstly need to add them to your Government Gateway account.
+
+#DASHBOARD MANAGE PROPERTIES
+dashboard.manageProperties.title=My properties
+dashboard.manageProperties.expectDelays=It may take several hours for your property to display here once you have claimed it.
+dashboard.manageProperties.noPropertiesMessage1=You haven't claimed any properties yet. You need to
+dashboard.manageProperties.noPropertiesMessagelink=claim a property
+dashboard.manageProperties.noPropertiesMessage2=before you can check or challenge the rateable value.
+dashboard.manageProperties.noProperties=There are no properties to display.
+manageProperties.table.caption=Your properties
+manageProperties.table.1=Address
+manageProperties.table.2=Local authority reference
+manageProperties.table.3=Status
+manageProperties.table.4=Appointed agents
+manageProperties.table.5=Actions
+manageProperties.table.clear.search=Clear search
+dashboard.manageProperties.status.added=Approved
+dashboard.manageProperties.status.approved=Approved
+dashboard.manageProperties.status.pending=Pending
+dashboard.manageProperties.status.declined=Declined
+dashboard.manageProperties.status.revoked=Revoked
+dashboard.manageProperties.status.more_evidence_required=More evidence required
+dashboard.manageProperties.submissionId=Submission ID: {0}
+dashboard.manageProperties.noAgent=None
+dashboard.managedProperties.addAnotherProperty=Add property
+manageProperties.revokeAgent=Remove agent
+manageProperties.appointAgent=Appoint agent
+manageProperties.addAgent=Appoint agent
+manageProperties.appointAgent.confirmation.p1=You can assign properties to this agent by <a class="govuk-link" id="managing-your-agents-link" href="{0}">managing your agents</a>.
+manageProperties.viewAssessments=View valuations
+link.dashboard.home=Back to dashboard
+search.sort.page.size.view=View
+search.sort.page.size.properties.per.page=properties per page
+search.sort.showing=Showing {0} to {1} of {2}
+
+
+#MANAGED BY AGENT PROPERTIES
+dashboard.managedByAgentsProperties.title=Properties managed by {0}
+managedByAgentsProperties.table.caption=Your properties
+managedByAgentsProperties.table.1=Address
+managedByAgentsProperties.table.2=Local authority reference
+managedByAgentsProperties.table.3=Status
+managedByAgentsProperties.table.4=Appointed Agents
+managedByAgentsProperties.table.5=Actions
+dashboard.managedByAgentsProperties.status.approved=Approved
+dashboard.managedByAgentsProperties.status.pending=Pending
+dashboard.managedByAgentsProperties.status.declined=Declined
+dashboard.managedByAgentsProperties.status.revoked=Revoked
+dashboard.managedByAgentsProperties.noAgent=None
+managedByAgentsProperties.viewAssessments=View valuations
+managedByAgentsProperties.no.properties=This agent is not appointed to any properties
+managedByAgentsProperties.no.agentId=Unable to retrieve agent details
+
+
+manageClients.table.1=Organisation name
+manageClients.table.2=Address
+manageClients.table.3=Local authority reference
+manageClients.table.4=Permissions
+manageClients.table.5=Actions
+
+managePropertiesSearchSort.table.1=Address
+managePropertiesSearchSort.table.2=Local authority reference
+managePropertiesSearchSort.table.3=Status
+managePropertiesSearchSort.table.4=Client
+managePropertiesSearchSort.table.5=Actions
+
+#DASHBOARD ASSESSMENTS
+property.details.title=Valuations for
+property.details.p1=You can view your rateable value and start a new check or view the previous cases
+
+property.details.cases.table.1=Submitted date
+property.details.cases.table.2=Submitted ID
+property.details.cases.table.3=Status
+property.details.cases.table.4=Check reference
+property.details.cases.table.5=Closed date
+property.details.cases.table.6=Agent
+property.details.cases.table.7=Client
+property.details.cases.table.8=Submitted By
+property.details.cases.table.challenge=Challenge
+property.dvr.challenge.error=If you still think you have the right to make a Challenge, you will need to <a class="govuk-link" href="{0}"> download and complete a Challenge form (T012)</a>
+
+assessments.table.caption=Valuations
+assessments.table.1=Effective date
+assessments.table.2=Rateable value
+assessments.table.3=Capacity
+assessments.table.4=From
+assessments.table.5=To
+assessments.table.6=Actions
+assessments.table.action=Action
+assessments.enddate.present=Present
+assessments.enddate.present.lowercase=present
+assessments.view.valuation=View valuation
+assessments.view.summary=View summary valuation
+label.viewAssessmentRadio=Valuation
+
+assessments.localAuthorityRef=Local authority reference:
+assessments.property=Property:
+assessments.title=Select a valuation to check
+assessments.pageTitle=Select a valuation to check
+assessments.paragraph=The rateable value of a property is reassessed by the VOA each time they publish a new business rates valuation list. You may check the facts and the rateable value for each of the published valuations.
+assessments.propertyRemoved=This property is no longer on the rating list
+
+
+assessments.current.title=Current valuation
+assessments.draft.title=Future valuation
+assessments.historic.title=Previous valuations
+assessments.select.valuation=Select this valuation
+
+assessments.current.text=Current
+assessments.draft.text=Draft
+assessments.historic.text=Historic
+assessments.aria.label.full=Select this valuation - {0} from {1} to {2}
+assessments.aria.label.partial=Select this valuation - {0} from {1}
+
+assessments.na=N/A
+
+label.help=Help with {0}
+rv.na=Rateable value is N/A
+rv.na.p.1=This property has been removed from the rating list. This could be because it has a new address, the description has changed or it has been split or merged with another property.
+rv.na.p.2=If you want to view the detailed valuation or check or challenge this property, you’ll need to claim the new entry. You should only claim the property if you are eligible to do so as the owner or occupier for the period of time that the new entry relates to.
+rv.na.p.3=If you are looking to view the detailed valuation or check or challenge the previous entry, you should contact the VOA by emailing <a class="govuk-link" href="mailto:ccaservice@voa.gov.uk">ccaservice@voa.gov.uk</a>
+
+#DASHBOARD DRAFT CASES
+draftCases.title=Draft cases
+draftCases.p.expiry=Your draft will be saved for 30 days from the date you started your check.
+draftCases.table.caption=Draft cases
+draftCases.table.1=Address
+draftCases.table.2=Effective date
+draftCases.table.3=Draft expiry date
+draftCase.continue.check=Continue check
+draftCase.delete.draft=Delete draft
+draftCase.viewValuation=Property details
+draftCases.p.empty=You have no saved draft cases
+draftCases.confirm.delete.title=Delete draft
+draftCases.confirm.delete.message.1=This draft will be deleted
+draftCases.confirm.table.caption=Delete draft
+draftCases.confirm.delete.return.button=Return to drafts list
+
+
+#remove property
+propertyRepresentation.removeAgent.title=Remove agent permissions
+propertyRepresentation.removeAgent.message.p1=You can remove an agent''s ability to carry out checks and challenges on your behalf.
+propertyRepresentation.removeAgent.message.p2=Select an agent from the list below to remove them from one or more properties.
+propertyRepresentation.removeAgentProperties.title=Remove agent {0} from one or more properties
+propertyRepresentation.removeAgentProperties.message=(Agent ID: {0}) will no longer be able to submit checks and challenges for these properties.
+
+#Appoint agent
+propertyRepresentation.appointAgent.title=Appoint an agent
+propertyRepresentation.appointAgent.message.1=You’ll need to enter the code of the agent you want to appoint and tell us what they can do on behalf of your business.
+propertyRepresentation.appointAgent.message.2=Please be aware that you''ll be responsible for any information your agent submits to us about your property. You''ll be liable for any penalty or the backdating of revised valuations if your agent submits false information.
+propertyRepresentation.appointAgent.associatedAgents.p1=The following agents are currently associated with your account. Select an agent from the list below or add a new agent to associate them with one or more properties.
+propertyRepresentation.appointAgent.associatedAgents.p2=If you''ve already appointed an agent for a property, the previous one will be removed and won''t be able to act on your behalf.
+propertyRepresentation.appointAgent.warning=Please be aware that you''ll be responsible for any information your agent submits to us about your property. You''ll be liable for any penalty or the backdating of revised valuations if your agent submits false information.
+propertyRepresentation.appointAgent.message.appoint=Appoint a new agent
+propertyRepresentation.appointAgent.check.p1=If any of the factual details about your property or land are incorrect, you (the owner, occupier or authorised agent) need to let the VOA know. Telling us about anything that’s incorrect is known as a check.
+propertyRepresentation.appointAgent.check.p2=If all of your property details are correct but you believe your rateable value is incorrect, you must first complete a check and wait for the outcome before making a challenge.
+propertyRepresentation.appointAgent.challenges.p1=Once you’ve completed a check, the VOA will contact you with the outcome. If you disagree with the outcome of the check or you believe the rateable value of your property is incorrect, you can let us know. Doing this is known as a challenge.
+propertyRepresentation.appointAgent.challenges.p2=You can’t start a challenge until you’ve received the outcome for your check.
+propertyRepresentation.appointAgent.yes=Yes
+propertyRepresentation.appointAgent.no=No
+propertyRepresentation.table.title.appoint=Appoint
+propertyRepresentation.table.title.agentId=Agent code
+propertyRepresentation.table.title.agentName=Agent name
+propertyRepresentation.table.title.remove=Select
+
+#New appoint agent journey
+propertyRepresentation.addAnAgent.title=Appoint an agent
+
+propertyRepresentation.addAnAgent.question=Agent code
+propertyRepresentation.addAnAgent.caption=You need to ask your agent for their code if you do not have it.
+propertyRepresentation.addAnAgent.agentCode=Agent code
+
+
+propertyRepresentation.addAnAgent.guidance=What can my agent do?
+propertyRepresentation.addAnAgent.guidance.yourAgentCan=Your agent can:
+propertyRepresentation.addAnAgent.guidance.discussProperties=discuss your property’s valuation with the VOA
+propertyRepresentation.addAnAgent.guidance.challenge=challenge the value if necessary
+propertyRepresentation.addAnAgent.guidance.addProperty=add your properties to your account
+
+propertyRepresentation.isThisYourAgent.title=Confirm Agent
+propertyRepresentation.isThisYourAgent.question=Is this your agent?
+propertyRepresentation.isThisYourAgent.yes=Yes
+propertyRepresentation.isThisYourAgent.no=No, enter a new code
+
+propertyRepresentation.onePropertyNoExistingAgent.question=Do you want {0} to manage your property?
+
+propertyRepresentation.oneProperty.title=Should the agent manage your property
+propertyRepresentation.oneProperty.question=Should {0} manage your property?
+propertyRepresentation.oneProperty.options.yes=Yes
+propertyRepresentation.oneProperty.options.no=No
+
+propertyRepresentation.multipleProperties.title=Which properties should the agent manage
+propertyRepresentation.multipleProperties.question=Which properties would you like {0} to manage?
+propertyRepresentation.multipleProperties.options.all=All
+propertyRepresentation.multipleProperties.options.noProperties=None
+propertyRepresentation.multipleProperties.options.chooseFromList=Choose from a list
+
+propertyRepresentation.checkYourAnswers.title=Check your answers
+propertyRepresentation.checkYourAnswers.newAgent=New agent
+propertyRepresentation.checkYourAnswers.managingProperty=Managing property
+propertyRepresentation.checkYourAnswers.yourProperty=Your property
+propertyRepresentation.checkYourAnswers.options.all=All properties
+propertyRepresentation.checkYourAnswers.options.none=No properties
+propertyRepresentation.checkYourAnswers.options.no=No
+propertyRepresentation.checkYourAnswers.options.yes=Yes
+
+propertyRepresentation.checkYourAnswers.submit=Submit
+
+propertyRepresentation.confirmation.title=Agent has been appointed
+propertyRepresentation.confirmation={0} has been appointed for you
+propertyRepresentation.confirmation.whatHappensNext=What happens next
+propertyRepresentation.confirmation.whatHappensNext.p1=We will notify {0} that you have appointed them as your agent.
+propertyRepresentation.confirmation.whatHappensNext.allOrSome={0} will be able to discuss your property with the Valuation Office Agency on your behalf.
+propertyRepresentation.confirmation.whatHappensNext.relationship={0} will be able to add properties to your account on your behalf.
+
+error.propertyRepresentation.title=There is a problem
+error.propertyRepresentation.unknownAgent=There is no agent for the provided agent code
+error.propertyRepresentation.agentAlreadyAppointed=This agent has already been added to your account
+
+#Show your agents
+propertyRepresentation.showAgents.label.agent=Agent
+propertyRepresentation.showAgents.label.assigned.to=Assigned to
+propertyRepresentation.showAgents.label.action=Action
+propertyRepresentation.showAgents.title=Your agents
+propertyRepresentation.showAgents.appointNewAgent.link=Appoint an agent
+propertyRepresentation.noAgents=You have no agents.
+
+propertyRepresentation.agentProperties.assigned.title=Your agent
+propertyRepresentation.agentProperties.assigned=Assigned properties
+propertyRepresentation.agentProperties.label.properties=Properties
+propertyRepresentation.manage.agent=Manage this agent
+propertyRepresentation.showAgents.properties={0} of {1} properties
+propertyRepresentation.showAgents.viewAgentProperties=<a class="govuk-link" href="{0}" aria-label="View agent {1}">View</a>
+error.propertyRepresentation.agentProperties.filter=Search Properties - you must enter something to search for
+error.agentProperties.filter=You must enter something to search for
+
+#Manage Agent
+propertyRepresentation.manageAgent.title=Manage agent
+propertyRepresentation.manageAgent.question=What do you want to do to the agent {0}?
+
+propertyRepresentation.manageAgent.removeFromAccount.title=Remove agent from your account
+propertyRepresentation.manageAgent.removeFromAccount.question=Would you like to remove {0} from your account?
+propertyRepresentation.manageAgent.removeFromAccount.continue=Confirm and remove
+propertyRepresentation.manageAgent.removeFromAccount.cancel=Cancel and return to home page
+
+propertyRepresentation.manageAgent.removeFromAccount.confirmation.title=Agent has been removed from your account
+propertyRepresentation.manageAgent.removeFromAccount.confirmation={0} has been removed from your account
+
+propertyRepresentation.manageAgent.unassignFromProperty.title=Unassign from your property
+propertyRepresentation.manageAgent.unassignFromProperty.question=Would you like to unassign {0} from your property?
+propertyRepresentation.manageAgent.unassignFromProperty.confirm=Confirm and unassign
+propertyRepresentation.manageAgent.unassignFromProperty.cancel=Cancel and return to home page
+
+propertyRepresentation.manageAgent.options.assignToAllProperties=Assign to all properties
+propertyRepresentation.manageAgent.options.assignToSomeProperties=Assign to some properties
+propertyRepresentation.manageAgent.options.unassignFromAllProperties=Unassign from all properties
+propertyRepresentation.manageAgent.options.unassignFromSomeProperties=Unassign from some properties
+propertyRepresentation.manageAgent.options.assignToYourProperty=Assign to your property
+propertyRepresentation.manageAgent.options.removeFromYourAccount=Remove from your account
+
+propertyRepresentation.manageAgent.assignToAllProperties.title.multipleProperties=Confirm you want to assign agent to all properties
+propertyRepresentation.manageAgent.assignToAllProperties.title.singleProperty=Confirm you want to assign agent to your property
+propertyRepresentation.manageAgent.assignToAllProperties.question.multipleProperties=Are you sure you want to assign {0} to all your properties?
+propertyRepresentation.manageAgent.assignToAllProperties.question.singleProperty=Are you sure you want to assign {0} to your property?
+propertyRepresentation.manageAgent.assignToAllProperties.insetText.multipleProperties={0} will be added to all of your properties
+propertyRepresentation.manageAgent.assignToAllProperties.insetText.singleProperty={0} will be added to your property
+
+propertyRepresentation.manageAgent.assignToAllProperties.confirmation.title.multipleProperties=Agent assigned to all properties
+propertyRepresentation.manageAgent.assignToAllProperties.confirmation.title.singleProperty=Agent assigned to your property
+propertyRepresentation.manageAgent.assignToAllProperties.confirmation.multipleProperties={0} has been assigned to all your properties
+propertyRepresentation.manageAgent.assignToAllProperties.confirmation.singleProperty={0} has been assigned to your property
+propertyRepresentation.manageAgent.assignToAllProperties.confirmation.whatHappensNext=What happens next
+propertyRepresentation.manageAgent.assignToAllProperties.confirmation.whatHappensNext.p1={0} will be able to discuss your property with the Valuation Office Agency on your behalf.
+
+propertyRepresentation.manageAgent.unassignFromAllProperties.title=Confirm you want to unassign agent from all properties
+propertyRepresentation.manageAgent.unassignFromAllProperties.question=Are you sure you want to unassign {0} from all properties?
+
+propertyRepresentation.manageAgent.unassignFromAllProperties.confirmation.title.multipleProperties=Agent has been unassigned from all your properties
+propertyRepresentation.manageAgent.unassignFromAllProperties.confirmation.title.singleProperty=Agent has been unassigned from your property
+propertyRepresentation.manageAgent.unassignFromAllProperties.confirmation.multipleProperties={0} has been unassigned from all your properties
+propertyRepresentation.manageAgent.unassignFromAllProperties.confirmation.singleProperty={0} has been unassigned from your property
+propertyRepresentation.manageAgent.unassignFromAllProperties.confirmation.insetText=This agent has not been removed from your account.
+propertyRepresentation.manageAgent.unassignFromAllProperties.confirmation.youCanNow=You can now:
+propertyRepresentation.manageAgent.unassignFromAllProperties.confirmation.removeFromAccount=Remove this agent from your account
+
+propertyRepresentation.revokeClientProperty.title=Client has been revoked
+propertyRepresentation.revokeClientProperty.confirmation=You have successfully revoked client property: {0}
+propertyRepresentation.revokeClientProperty.returnToClientProperties=Return to client properties
+
+#Appoint agents properties
+propertyRepresentation.appointAgentProperties.title=Appoint agent {0} to one or more properties
+propertyRepresentation.appointAgentProperties.appointAgent=(Agent ID: {0}) will be able to submit checks and challenges for these properties.
+propertyRepresentation.appointAgentProperties.dropdown.single=Choose from 1 agent
+propertyRepresentation.appointAgentProperties.dropdown.multiple=Choose from {0} agents
+propertyRepresentation.appointAgentProperties.select=Select all
+propertyRepresentation.appointAgentProperties.deselect=Deselect all
+propertyRepresentation.th.ADDRESS=Address
+propertyRepresentation.th.AGENT=Appointed agents
+propertyRepresentation.th.BAREF=Local authority reference
+propertyRepresentation.search.filter=Search your properties
+propertyRepresentation.search=Search for {0}
+propertyRepresentation.pageSize.showing=Showing
+label.linkIds=Select one or more properties
+propertyRepresentation.pageSize.perPage=messages per page
+propertyRepresentation.paginationInfo=Page {0} of {1}
+propertyRepresentation.appointAgents.showPropertiesNoAgent.link=<a class="govuk-link" href="{0}">Only show properties with no agent</a>
+propertyRepresentation.appointAgents.showAllProperties.link=<a class="govuk-link" href="{0}">Show all properties</a>
+label.propertyRepresentation.address=Address
+label.propertyRepresentation.appointedAgents=Agent
+error.propertyRepresentation.appoint.filter=You must enter something to search for
+
+
+##Appoint agent summary
+propertyRepresentation.agentSummary.heading=Agent appointed
+propertyRepresentation.agentSummary.title={0} has been assigned to your selected properties
+propertyRepresentation.agentSummary.h2=What happens next
+propertyRepresentation.agentSummary.p={0} will be able to discuss your property with the Valuation Office Agency on your behalf.
+propertyRepresentation.agentSummary.appointed=You have appointed agent ''{0}'' ({1}) with the ability to submit checks and challenges to the selected properties.
+propertyRepresentation.agentSummary.warning=Your agent has 180 days to accept your request. Otherwise your request will be rejected and you will need to send a new request.
+propertyRepresentation.agentSummary.back=Back to dashboard
+propertyRepresentation.agentSummary.select.more=Select more properties
+
+
+propertyRepresentation.appointAgent.agentCode=Agent code
+propertyRepresentation.appointAgent.button=Continue
+
+
+#Remove agent summary
+propertyRepresentation.agentRemoveSummary.heading=Agent removed
+propertyRepresentation.agentRemoveSummary.h1={0} has been removed from your selected properties
+propertyRepresentation.agentRemoveSummary.removed=You have removed Agent ''{0}’s'' ability to submit checks and challenges from {1} properties
+
+label.canCheck=Do you want this agent to submit checks?
+label.canChallenge=Do you want this agent to submit challenges?
+error.invalidPermissions=Agent must either have permission to submit checks or challenges
+error.invalidAgentCode=Invalid agent code
+error.alreadyAppointedAgent=This agent is already assigned to this property. If you want to change the permissions for this agent, you’ll need to remove their permissions and then appoint them with the new permissions.
+error.selfAppointment=You can’t appoint your own business as your agent
+propertyRepresentation.appointAgent.summary.1=My agent hasn’t given me a code
+propertyRepresentation.appointAgent.details.1=You’ll need to ask your agent for the code they were assigned when they registered for this service.
+canCheck.summary=What is a check?
+canCheck.details=If any of the factual details about your property or land are incorrect, you need to let us know. Confirming or alerting us to any changes through this service is known as a check.
+
+canChallenge.summary=What is a challenge?
+canChallenge.details=If you want to request a change to your valuation, you’ll need to submit a challenge. Unlike a check, which is to confirm and propose changes to current property information, a challenge allows you to suggest changes to the valuation.
+
+propertyRepresentation.overrideAgent.title=Another agent is already appointed
+propertyRepresentation.overrideAgent.message.1=Our records show that the following agents are currently appointed:
+propertyRepresentation.overrideAgent.message.2={0} for {1}
+propertyRepresentation.overrideAgent.message.3=If you choose to continue, the agent with code {0} will be given permission for {1} cases and any existing agents will no longer have permission for {2}.
+propertyRepresentation.overrideAgent.message.4=Would you like to continue?
+propertyRepresentation.overrideAgent.button.yes=Yes
+propertyRepresentation.overrideAgent.button.no=No
+
+propertyRepresentation.revokeClient.title=Revoking client
+propertyRepresentation.revokeClient.message=Are you sure you no longer want to act on behalf of {0} for {1}?
+propertyRepresentation.revokeClient.button=Continue
+
+propertyRepresentation.revokeAgent.title=Remove agent
+propertyRepresentation.revokeAgent.message=Are you sure you no longer want {0} to act on behalf of this property?
+propertyRepresentation.revokeAgent.button=Remove agent
+
+propertyRepresentation.revokedAgent.title=Remove agent
+propertyRepresentation.revokedAgent.heading=We’ve received your request to remove {0}
+propertyRepresentation.revokedAgent.heading.generic=We’ve received your request to remove the agent
+propertyRepresentation.revokedAgent.whatNext=What happens next
+propertyRepresentation.revokedAgent.p.1=The agent will no longer be able to act on behalf of {0}.
+propertyRepresentation.revokedAgent.p.2=They will no longer appear in the ‘Manage agents’ section on your dashboard for this property.
+propertyRepresentation.revokedAgent.button=Continue
+#EDIT AGENT
+propertyRepresentation.modifyAgent.title=Manage agent relationship
+propertyRepresentation.modifyAgent.message.1=Please enter the code of the agent you wish to modify.
+propertyRepresentation.modifyAgent.message.2=If you do not have this code, please ask your Agent to provide it.
+label.agentCode=Agent code
+label.agentCodeRadio=Appoint agent
+propertyRepresentation.modifyAgent.button=Submit
+
+propertyRepresentation.appointedAgent.title=Agent nomination successful
+agentAppointed.heading=We have received your request for this agent to act on behalf of your business
+appointedAgent.whatNext=What happens next
+appointedAgent.whatNext.p.1=The agent has been sent your request to act on behalf of {0}.
+appointedAgent.button=Go to your dashboard
+propertyRepresentation.modifiedAgent.title=Agent nomination changes accepted
+propertyRepresentation.modifiedAgent.message.1=Your changes have been applied.
+propertyRepresentation.modifiedAgent.message.2=The agent has been notified of the changes.
+
+propertyRepresentation.alreadyAppointedAgent.title=This property is already linked to an agent
+propertyRepresentation.alreadyAppointedAgent.add=Add another agent
+link.editPermissions=Edit permissions
+
+propertyRepresentation.selectAgent.title=Select Agent
+propertyRepresentation.selectAgent.message=Please select which Agent relationship you wish to manage
+propertyRepresentation.selectAgent.table.1=Agent name
+propertyRepresentation.selectAgent.table.2=Agent code
+propertyRepresentation.selectAgent.status.pending=Pending
+propertyRepresentation.selectAgent.status.accepted=Accepted
+
+#VIEW REPRESENTATIONS (AGENT)
+p.agentCode=Your agent code is {0}
+manageProperties.pendingRequests=Pending representation requests
+manageClients.noOfPending=You have {0} pending requests
+manageClients.nonePending=There are no outstanding representation requests
+manageProperties.representations=Properties you are representing
+representationRequests.table.1=Organisation name
+representationRequests.table.2=Property address
+representationRequests.table.3=Check permission
+representationRequests.table.4=Challenge permission
+representationRequests.table.5=Date requested
+representationRequests.table.6=Actions
+propertyRepresentations.table.1=Organisation name
+propertyRepresentations.table.2=Number of properties
+propertyRepresentations.table.3=Actions
+propertyRepresentations.viewProperties=View properties
+manageProperties.noRepresentations=You have no representations
+
+#SEARCH
+search.title=Search and select a property to add to your customer record
+search.select.link=Select
+
+#DECLARE CAPACITY
+declarePropertyRelationship.title=Connection to the property
+declarePropertyOwnership.title=Claim this property ownership
+propertyOccupancy.title=Do you still own or occupy the property?
+propertyOccupancy.title.client=Does your client still own or occupy the property?
+label.lastOccupiedDate=Date of last day as the owner or occupier
+label.lastOccupiedDate.client=Date of last day your client as the owner or occupier
+declareCapacity.incorrectProperty.prefix=If this isn’t the right property you can
+declareCapacity.incorrectProperty.link=search for a different property
+declareCapacity.title=When you became the owner or occupier of the property
+declareCapacity.title.client=When your client became the owner or occupier of the property
+declareCapacity.panel.title=I have owned or occupied the property on more than one occasion
+declareCapacity.panel.text=You can add the property for each period you were connected to it, but you need to do it one period at a time. However, if you want to talk to the Valuation Office Agency about the valuation, you will need to select the right valuation period.
+declareCapacity.panel.title.client=My client has owned or occupied the property on more than one occasion
+declareCapacity.panel.text.client=You can add the property for each period your client was connected to it, but you need to do it one period at a time. However, if you want to talk to the Valuation Office Agency about the valuation, you will need to select the right valuation period.
+label.interestedOnOrBefore=When did you become the owner or occupier of the property?
+label.interestedOnOrBefore.client=When did your client become the owner or occupier of the property?
+interestedOnOrBefore.true=On or before {0}
+interestedOnOrBefore.false=After {0}
+interestedOnOrBefore.error.startDateMustBeBeforeEnd=Date you became the {0} of the property must be before {1}
+interestedOnOrBefore.error.startDateMustBeBeforeEnd.client=Date your client became the {0} of the property must be before {1}
+interestedOnOrBefore.error.startDateMustBeBeforeEnd.relationship.fallback=owner or occupier
+interestedOnOrBefore.error.startDateMustBeBeforeEnd.endDate.fallback=the last occupied date
+label.stillOccupied=Do you still own or occupy the property?
+label.stillOccupied.client=Does your client still own or occupy the property?
+stillOccupied.true=Yes
+stillOccupied.false=No
+declareCapacity.fromDate.help=
+declareCapacity.toDate.help=Leave blank if still in occupation or ownership
+declareCapacity.submit.button=Add property
+label.capacity=What is your connection to the property?
+label.capacity.client=What is your client’s connection to the property?
+capacity.OWNER=Owner
+capacity.OCCUPIER=Occupier
+capacity.OWNER_OCCUPIER=Owner and occupier
+error.capacity.noValueSelected=You must select a capacity
+fromDate.day.label=Day
+fromDate.month.label=Month
+fromDate.year.label=Year
+label.fromDate=On what date did you become the owner or occupier?
+label.fromDate.client=On what date did your client become the owner or occupier?
+label.toDate=When was your last day as the owner or occupier of the property?
+label.toDate.client=When was your client''s last day as the owner or occupier of the property?
+toDate.day.label=Day
+toDate.month.label=Month
+toDate.year.label=Year
+error.date.mustBeAfter2017=Must be after 1 April 2017
+error.date.mustBeAfter=Must be after {0}
+error.date.mustBeInPast=Must be in the past
+error.date.mustBeAfterOther=The end date must be after the start date
+error.date.mustBeAfterStartDate=Date of last day as {0} of the property must be after {1}
+error.date.mustBeAfterStartDate.client=Date of your client''s last day as {0} of the property must be after {1}
+error.date.mustBeAfterStartDate.relationship.fallback=owner or occupier
+declareCapacity.details.ownerOrOccupier=I own or occupy a part of this property
+declareCapacity.details.ownerOrOccupier.text=After the Valuation Office Agency have approved your connection, you may want to ask them to split this property to get separate valuations for each part.
+declareCapacity.details.notOwner=I do not own the property but I sublet it to someone else
+declareCapacity.details.notOwner.text=<p>If you sublet the property to another person or business, select ‘Owner’ and enter the dates of the sublet period.</p><p>If you only sublet part of the property, you may want to ask the Valuation Office Agency to split this property to get separate valuations for each part. You can do this after they have approved your connection to the property.</p>
+declareCapacity.details.ownerOrOccupier.client=My client owns or occupies part of this property
+declareCapacity.details.ownerOrOccupier.text.client=<p>You can still add this property on behalf of your client, as if they owned or occupied the whole property.</p><p>After we’ve approved your client’s connection to the property, you can ask us to split the property to get separate valuations for each part.</p>
+declareCapacity.details.notOwner.client=My client does not own the property, but they sublet it to someone else
+declareCapacity.details.notOwner.text.client=<p>Your client is considered to be the owner if they sublet the property to another person or business. Enter the date the sublet started. </p><p>If only part of the property is sublet, you can ask us to split the property to get separate valuations for each part. You can do this after we’ve approved your client’s connection to the property.</p>
+
+declareCapacity.details.agent=I’m an agent acting on behalf of the owner or occupier for this property
+declareCapacity.details.agent.text=If you’ve been added as an assistant to your client’s organisation, you’ll need to sign in to that account to claim properties. You can’t claim a property from your agent account.
+declareCapacity.details.haveOwned=I have owned or occupied the property on more than one occasion
+declareCapacity.details.haveOwned.client=My client has owned or occupied the property on more than one occasion
+declareCapacity.details.haveOwned.text=If you have owned or occupied the property on more than one occasion, you should enter the date that you moved in (and if relevant the date that you moved out) for the period of time that you want to check or challenge the rateable value.
+declareCapacity.details.haveOwned.text.client=If your client has owned or occupied the property on more than one occasion, you should enter the date that your client moved in (and if relevant the date that your client moved out) for the period of time that you want to check or challenge the rateable value.
+label.fromDate.day=On what date did you become the owner or occupier? - Day
+label.fromDate.day.client=On what date did your client become the owner or occupier? - Day
+label.fromDate.month=On what date did you become the owner or occupier? - Month
+label.fromDate.month.client=On what date did your client become the owner or occupier? - Month
+label.fromDate.year=On what date did you become the owner or occupier? - Year
+label.fromDate.year.client=On what date did your client become the owner or occupier? - Year
+label.toDate.day=When was your last day as the owner or occupier of the property?- Day
+label.toDate.day.client=When was your client''s last day as the owner or occupier of the property? - Day
+label.toDate.month=When was your last day as the owner or occupier of the property?- Month
+label.toDate.month.client=When was your client''s last day as the owner or occupier of the property? - Month
+label.toDate.year=When was your last day as the owner or occupier of the property? - Year
+label.toDate.year.client=When was your client''s last day as the owner or occupier of the property? - Year
+#UPLOAD RATES BILL
+uploadRatesBill.show.title=Upload your business rates bill
+uploadRatesBill.show.client.title=Upload your client''s business rates bill
+uploadFile.allowedTypes.mustbe=Your file must be:
+uploadFile.allowedTypes.l1=The file must be a Word document, Excel spreadsheet, PDF or image (PNG or JPG) and be less than 10MB.
+uploadRatesBill.show.hasRatesBill.label=Do you have a business rates bill?
+uploadRatesBill.show.hasRatesBill.text=I have a business rates bill
+uploadRatesBill.show.button=Continue
+uploadRatesBill.reminder=The date of the bill must overlap with the period you owned or occupied the property.
+uploadRatesBill.client.reminder=The date of the bill must overlap with the period your client owned or occupied the property
+common.uploadFile.label=Upload a file
+chooseEvidence.title=Do you have a copy of the business rates bill for this property?
+chooseEvidence.client.title=Do you have a copy of your client''s business rates bill for this property?
+hasRatesBill.true=Yes
+hasRatesBill.false=No
+label.ratesBill=Please upload a copy of the rates bill
+label.ratesBill.help=This business rates bill should be the most recent bill that you have for the property, for the period that you were the owner or occupier.
+ratesBill.label.1=PDF, scanned images, and photographs are allowed. Your file must be less than 10MB in size.
+uploadFile.info.title=How do I convert a file into a PDF?
+uploadFile.info.content=<p>Converting a file into a PDF is similar for most software. First open the document that you want to convert, then:</p><ul class="list list-number"><li>click “File”</li><li>choose either “Export”, “Export as PDF” or “Save as” (depending on your software)</li><li>select “Create PDF” or “PDF”</li><li>click on either “Publish” or “Save”</li></ul><p>For Mac users and older software:</p><ul class="list list-number"><li>click “File”</li><li>select “Print”</li><li>either click “PDF”, or choose a printer labelled “PDF”</li><li>click either “Save” or “OK”</li></ul><p>You could also search for websites that will convert your document for free.</p><p>Due to the outbreak of Covid-19 we are currently unable to offer a telephony service and it will take longer than usual to respond to your query. If you need to contact us please use our <a href="https://www.gov.uk/contact-voa" class="govuk-link">Contact Form</a> and we will respond as soon as possible. We’re sorry for any inconvenience this has caused.</p>
+
+#LINK REQUEST CONFIRMATION
+
+linkingRequestSubmitted.title=We’ve received your request to add the property to your business’s customer record
+linkingRequestSubmitted.title1=Property claim submitted
+linkingRequestSubmitted.client.title2=to your client’s business’s customer record
+linkingRequestSubmitted.title3=Your submission number
+linkingRequestSubmitted.message=Thank you for your request to add {0} to your customer record.
+linkingRequestSubmitted.p1=Make a note of your reference number as you''ll need to provide it if you contact us.
+linkingRequestSubmitted.p.1=If the property request is approved you’ll be able to view the detailed valuation. This may take some time depending on the nature of your application.
+p.whatHappensNext=What happens next
+linkSubmitted.whatNext.1=We will process your claim to this property as quickly as possible but this may take up to 15 working days.
+linkSubmitted.whatNext.2=You can see the status of your claim in <a class="govuk-link" href="{0}">your properties</a>. Once the claim is approved, the status will update.
+linkSubmitted.whatNext.3=We will contact you if we need more information.
+linkSubmitted.whatNext.4=<a class="govuk-link" href="{0}">Go back to your dashboard</a>
+linkSubmitted.whatNext.5=You can see the status of your claim in <a class="govuk-link" href="{0}">your client''s properties</a>. Once the claim is approved, the status will update.
+linkSubmitted.whatNext.6=We will process your request within 20 working days. We will send you a message when the detailed valuation is available.
+linkSubmitted.whatNext.7= You will be able to access the valuation from <a class="govuk-link" href="{0}">your properties</a>.
+linkSubmitted.whatNext.8= You will be able to access the valuation from <a class="govuk-link" href="{0}">your client''s properties</a>
+linkingRequestSubmitted.link=Manage your properties
+linkingRequestSubmitted.changedCircumstances.heading=Change in circumstances
+linkingRequestSubmitted.changedCircumstances.p.1=If you’re claiming a property to tell us about any external circumstances that are currently impacting on your business (such as long-term disruptive roadworks, flooding, or other external factors) you’ll be able to tell us even while your request is ‘Pending’.
+link.addAnotherProperty=Add another property
+link.addAgent=Add an agent
+link.manageProperties=Manage properties
+
+#CANNOT PROVIDE EVIDENCE
+cannotProvideEvidence.title=If you cannot provide evidence
+cannotProvideEvidence.p1=If you can’t provide evidence to prove your link to the property, you won’t be able to claim it or view the detailed valuation.
+cannotProvideEvidence.p2=You’ll need to contact us to discuss other documents that prove your link to this property.
+cannotProvideEvidence.agent.p1=If you can’t provide evidence to prove your client’s link to the property, you won’t be able to claim it or view the detailed valuation.
+cannotProvideEvidence.agent.p2=You’ll need to contact us to discuss other documents that prove your client’s link to this property.
+cannotProvideEvidence.email=Email: <a class="govuk-link" href="mailto:ccaservice@voa.gov.uk">ccaservice@voa.gov.uk</a>
+
+#UPLOAD EVIDENCE
+uploadOtherEvidence.title=What evidence can you provide?
+uploadOtherEvidence.evidenceType=Evidence type
+uploadOtherEvidence.hint=Your evidence should be for {0}
+uploadOtherEvidence.evidenceTypes.lease=Lease
+uploadOtherEvidence.evidenceTypes.license=Licence to occupy
+uploadOtherEvidence.evidenceTypes.serviceCharge=Service charge statement
+uploadOtherEvidence.evidenceTypes.stampDutyLandTaxForm=Stamp Duty Land Tax form
+uploadOtherEvidence.evidenceTypes.landRegistryTitle=Land Registry title
+uploadOtherEvidence.evidenceTypes.waterRateDemand=Water rate demand
+uploadOtherEvidence.evidenceTypes.otherUtilityBill=Utility bill
+uploadOtherEvidence.evidenceTypes.ratesBill=Business rates bill
+
+uploadOtherEvidence.unableToProvideEvidence=I cannot provide evidence
+uploadOtherEvidence.uploadFile=Upload a file
+uploadOtherEvidence.uploadFile.hint=The file must be a Word document, Excel spreadsheet, PDF or image (PNG or JPG) and be less than 10MB.
+
+uploadEvidence.show.title=Provide other evidence
+uploadEvidence.p.1=You’ve indicated that you don’t have a business rates bill for this property. Please provide other evidence.
+uploadEvidence.evidenceTypes=Evidence that we may accept includes:
+uploadEvidence.evidenceTypes.1=the lease agreement
+uploadEvidence.evidenceTypes.2=licence to occupy property
+uploadEvidence.evidenceTypes.3=service charge statement
+uploadEvidence.evidenceTypes.4=Stamp Duty Land Tax form
+uploadEvidence.evidenceTypes.5=Land Registry title documents
+uploadEvidence.evidenceTypes.6=a water rate demand
+uploadEvidence.evidenceTypes.7=other utility bills
+
+uploadEvidence.noEvidence=I’m unable to provide any of these documents.
+uploadEvidence.noEvidence.p1=<p>If you can’t provide one of the documents listed to prove your link to the property, you won’t be able to claim it or view the detailed valuation.</p>
+uploadEvidence.noEvidence.p2=<p>You’ll need to contact us to discuss other documents that prove your link to this property.</p>
+uploadEvidence.noEvidence.p3=<p>Email: <a class="govuk-link" href="mailto:ccaservice@voa.gov.uk">ccaservice@voa.gov.uk</a></p>
+
+evidenceType.assignment=Assignment
+evidenceType.label=Type of evidence
+evidenceType.lease=Lease
+evidenceType.license=Licence to occupy property
+evidenceType.serviceCharge=Service charge
+evidenceType.stampDutyLandTaxForm=Stamp duty land tax form
+evidenceType.waterRateDemand=Water rate demand
+evidenceType.otherUtilityBill=Other utility bill
+evidenceType.ratesBill=Rates bill
+evidenceType.landRegistryTitle=Land Registry title
+
+fileupload.chooseFile=Choose file
+
+label.evidence=Please upload evidence so that we can verify your link to the property
+evidence.label=Provide other evidence
+error.missingFiles=Select other evidence
+uploadEvidence.show.button=Continue
+uploadEvidence.evidenceUploaded.title=Evidence successfully uploaded
+uploadEvidence.evidenceUploaded.message=Thank you for your request which has been submitted to the Valuation Office Agency.
+noEvidenceUploaded.title=We’re sorry, but you can’t proceed with this form.
+noEvidenceUploaded.h1=We’re unable to add {0} to your business’ customer record without a business rates bill or other suitable evidence
+noEvidenceUploaded.p.1=Your submission ID is {0}
+noEvidenceUploaded.whatHappensNext=What happens next
+noEvidenceUploaded.p.2=You’ll need to contact us to discuss your property linking request.
+noEvidenceUploaded.telephone=Telephone: 03000 501 501
+noEvidenceUploaded.reason.1=We’re unable to complete this request as you haven’t provided any proof of your link to this property. You won’t be able to view the detailed valuation for this property.
+noEvidenceUploaded.reason.2=Please make a note of your reference number and contact us to discuss other ways of proving your link to this property.
+noEvidenceUploaded.email=Email
+noEvidenceUploaded.emailaddress=<a href="mailto:{0}" class="govuk-link">{0}</a>
+
+#PROPERTY LINKING SUMMARY
+declaration.checkAnswers.connectionHeading=Connection to property
+declaration.checkAnswers.OWNER=Owner
+declaration.checkAnswers.OWNER_OCCUPIER=Owner and occupier
+declaration.checkAnswers.OCCUPIER=Occupier
+declaration.checkAnswers.startDateHeading=Started
+declaration.checkAnswers.startDate.onOrBefore=On or before {0}
+declaration.checkAnswers.ownershipHeading.builder={0} still {1} the property?
+declaration.checkAnswers.ownershipHeading.ip=Do you
+declaration.checkAnswers.ownershipHeading.agent=Does your client
+declaration.checkAnswers.ownershipHeading.own=own
+declaration.checkAnswers.ownershipHeading.occupy=occupy
+declaration.checkAnswers.ownershipHeading.ownAndOccupy=own and occupy
+declaration.checkAnswers.ownershipHeading.fallback=own or occupy
+declaration.checkAnswers.propertyOwnership.yes=Yes
+declaration.checkAnswers.propertyOwnership.no=No
+declaration.checkAnswers.lastOccupiedDate=Last day as {0}
+declaration.checkAnswers.evidenceType.heading=Evidence
+
+declaration.checkAnswers.change=Change
+declaration.button=Confirm and send
+declaration.title=Check and confirm your details
+declaration.p.1=I declare that:
+declaration.1=the information I have given in this form is correct and complete
+declaration.2=the file/details that I have uploaded contains proof of my relationship to the property for dates that overlap with the period claimed
+declaration.client.2=the file/details that I have uploaded contains proof of my client''s relationship to the property for dates that overlap with the period claimed
+declaration.p.2=I understand that I could be taken to court if I knowingly submit false information.
+declaration.p.3=You could be taken to court if you knowingly submit false information.
+declaration.p.agent=I declare that the information I have given is correct and complete. The evidence I have uploaded contains proof of my client''s connection to the property for dates that overlap with the period I have stated.
+declaration.p.ip=I declare that the information I have given is correct and complete. The evidence I have uploaded contains proof of my connection to the property for dates that overlap with the period I have stated.
+
+label.declaration=Declaration
+declaration.iAgree=I agree to the above declaration
+declaration.required=You must agree to the declaration to continue
+declaration.file.receipt=Please try again in a moment
+
+#LINK ERRORS
+linkError.manualVerification.title=Manual Verification Required
+linkError.manualVerification.message=We were unable to link you to the requested property. We need to manually verify your request.
+linkError.manualVerification.home.link=Manage your properties
+linkError.conflict.title=Property already linked to another customer record
+linkError.conflict.message=We're unable to add this property to your customer record at this time as it has already been linked to another customer record for the period you have specified. We’ll check the details and tell you the outcome.
+linkError.conflict.home.link=Manage your properties
+
+#REQUEST DETAILED VALUATION
+error.select.valuation.required=Please select a Valuation
+requestDetailedValuation.title=This detailed valuation isn’t available to view online.
+requestDetailedValuation.p.1=We’re working to make more detailed valuations available to view online in the next few months. If you need to view this detailed valuation sooner, please request a copy by email or post.
+requestDetailedValuation.p.2=If you don’t want to request this, you can <a class="govuk-link" href={0}>return to the home page.</a>
+requestDetailedValuation.p.3=The majority of our customers prefer us to send information by email as it means we can get it to them quicker. Although we take care to protect the security of your property data, we cannot guarantee that your detailed valuation will be secure once sent.
+requestDetailedValuation.p.4=If you’d prefer us to send this by post, we’ll send it to the address that you provided on the ‘your contact details’ page during registration.
+requestDetailedValuation.button=Request a valuation
+
+auto.requestDetailedValuation.title=Request a detailed valuation
+auto.requestDetailedValuation.smallTitle=Detailed valuation request for
+auto.requestDetailedValuation.p.1=You need to request this detailed valuation if you want to view it or submit a check.
+auto.requestDetailedValuation.p.1.draft=You need to request this detailed valuation if you want to view it.
+auto.requestDetailedValuation.p.2=Once your request is approved, it will be available to view on this page.
+auto.requestDetailedValuation.p.3=If you don’t want to request this, you can <a class="govuk-link" href={0}>return to your home page.</a>
+auto.requestDetailedValuation.button=Request a valuation
+auto.requestDetailedValuation.effectiveDate=<b>Effective date:</b> {0}
+auto.requestDetailedValuation.rateableValue=<b>Rateable Value:</b> £{0}
+
+requestDetailedValuation.heading.challenge=Already completed a check?
+requestDetailedValuation.challenge.p=Once you’ve completed a check, the VOA will contact you with the outcome. If you disagree with the outcome of the check or you believe the rateable value of your property is incorrect, you can let us know. Doing this is known as a challenge. (You can’t start a challenge until you’ve received the outcome for your check)
+requestDetailedValuation.challenge.start=Challenge this valuation
+
+auto.requestDetailedValuation.heading.challenge=Already submitted a check?
+auto.requestDetailedValuation.challenge.p1=The VOA will contact you with the outcome. If you disagree with the outcome of the check, or the rateable value of your property, you can start a challenge.
+auto.requestDetailedValuation.challenge.p2=You can''t start a challenge until you''ve received the outcome of your check.
+auto.requestDetailedValuation.challenge.start=Challenge this valuation
+
+#VIEW REQUEST DETAILED VALUATION
+available.requestvaluation.ip.titleCaption=Your property
+available.requestvaluation.agent.titleCaption=Client property: {0}
+available.requestvaluation.valuationTab.title=Valuation
+available.requestvaluation.startCheckTab.title=Start a Check
+available.requestvaluation.checksTab.noCases.title=Checks
+available.requestvaluation.checksTab.title=Checks ({0})
+available.requestvaluation.challengesTab.title=Challenges ({0})
+
+available.requestvaluation.agentsTab.title=Agents ({0})
+available.requestvaluation.agentsTab.noAgents.title=Agents
+
+available.requestvaluation.agentsTab.heading=Agents assigned to this property
+available.requestvaluation.agentsTab.noAgents.p1=There are no agents assigned to this property.
+available.requestvaluation.agentsTab.assignAnAgent=Assign an agent to this property
+available.requestvaluation.agentsTab.helpWithAppoint=Help with appointing an agent
+available.requestvaluation.agentsTab.table.header.agent=Agent
+available.requestvaluation.agentsTab.table.header.totalCases=Total cases for this property
+available.requestvaluation.agentsTab.table.header.openCases=Open cases for this property
+
+available.requestvaluation.downloadValuationLink=Download the detailed valuation for this property
+available.requestvaluation.changeValuation=If you want to change something in this valuation
+available.requestvaluation.p1.draft.englishProperty=If the property''s details are incorrect, or you believe the rateable value is wrong, have a look at the current valuation as well. If the details are wrong in both, you can submit a Check against the current valuation. Any changes will carry over to the draft valuation.
+available.requestvaluation.p1.draft.welshProperty=If you think something is wrong with the details in this valuation, have a look at the current valuation as well. If the details are wrong in both, you can submit a proposal against the current valuation. Any changes will carry over to the draft valuation.
+available.requestvaluation.p1=If the property''s details are incorrect, or you believe the rateable value is wrong, you must complete a Check form and confirm the property details with the VOA before you can make a challenge.
+available.requestvaluation.p2=Before you can submit a Check, you need to <a class="govuk-link" href="{0}">download and complete a Check form</a>.
+available.requestvaluation.p3=After completing the form, you need to send it as part of a Check.
+available.requestvaluation.warning=Some older Check forms may tell you to email or post your form. Please ignore this and use the ''Send my completed Check form'' button instead.
+available.requestvaluation.dvrCheck.startCheck=Send my completed Check form
+available.requestvaluation.print=Print this page
+available.requestvaluation.check.title=Submit a check
+available.requestvaluation.check.p1=To submit a check for this property you will need to <a class="govuk-link" href={0}> download the Check Form </a>
+available.requestvaluation.check.p2=You can email the form to <a class="govuk-link" href="mailto:CCAService@voa.gov.uk">CCAService@voa.gov.uk</a> or post it to:
+available.requestvaluation.address=Check and challenge service, PO Box 308, PLYMOUTH, PL5 9DT
+available.requestvaluation.h2=Current rateable value ({0} to {1})
+available.requestvaluation.inset=This is not the amount you pay. It is used to calculate your business rates bill.
+available.requestvaluation.dvrCheck.p1=Before you can submit a check, you need to <a class="govuk-link" href="{0}">download and complete a check form</a>.
+available.requestvaluation.dvrCheck.p2=After completing the form, you need to send it as part of a check.
+
+available.requestvaluation.startCheckTab.heading=Start a Check case
+available.requestvaluation.startCheckTab.guidance.summary=Help with starting a Check case
+available.requestvaluation.startCheckTab.guidance.content.p1=Send us a Check to tell us about changes to the property details. We may accept your changes and adjust the rateable value.
+available.requestvaluation.startCheckTab.guidance.content.p2=If you think the rateable value is too high and the property details do not need changing, you still need to send us a Check case. The Check case confirms that we have the correct property details. When the Check case is complete, send us a Challenge case to tell us you think the rateable value is too high.
+available.requestvaluation.startCheckTab.guidance.content.aboutCheck=More about Check cases
+available.requestvaluation.startCheckTab.guidance.content.aboutChallenge=More about Challenge cases
+
+available.requestvaluation.startCheckTab.question=What do you want to tell us?
+available.requestvaluation.startCheckTab.option1.content=The property details need changing
+available.requestvaluation.startCheckTab.option1.hint=For example, floor area sizes and parking
+available.requestvaluation.startCheckTab.rateableValueTooHigh.content=You think the rateable value is too high and property details do not need changing
+available.requestvaluation.startCheckTab.option2.content=You think you should not pay business rates for the property
+available.requestvaluation.startCheckTab.option2.hint=This may be because the property has been demolished, is being redeveloped, is exempt or no longer used for business
+available.requestvaluation.startCheckTab.option3.content=The property has been split
+available.requestvaluation.startCheckTab.option4.content=The property has been merged
+available.requestvaluation.startCheckTab.option5.content=A change in the local area affects the property’s rateable value
+available.requestvaluation.startCheckTab.option5.hint=For example, long-term roadworks, scaffolding or flooding
+available.requestvaluation.startCheckTab.option6.content=A court decision affects the property’s rateable value
+available.requestvaluation.startCheckTab.button.title=Continue
+available.requestvaluation.startCheckTab.checkType.error.missing=Select what you want to tell us
+
+cannotRaiseChallenge.title=You cannot challenge this valuation
+
+property.details.checkcases.table.1=Check reference
+property.details.checkcases.table.2=Submitted date
+property.details.checkcases.table.3=Status
+property.details.checkcases.table.4=Closed date
+property.details.checkcases.table.5=Submitted by
+property.details.checkcases.table.6=Action
+property.details.checkcases.table.challenge=Start a challenge
+property.details.div.submitted=Checks
+property.details.div.noSubmittedCheck=There are no check cases available for your property.
+property.details.checks.status.help=Help with status: {0}
+
+property.details.challengecases.table.1=Challenge reference
+property.details.challengecases.table.2=Submitted date
+property.details.challengecases.table.3=Status
+property.details.challengecases.table.4=Closed date
+property.details.challengecases.table.5=Submitted by
+property.details.challenge.status.help=Help with status: {0}
+
+property.details.div.submitted.challenge.cases=Challenges
+property.details.challenge.cases.table.4=Challenge reference
+label.requestType=How would you like to receive the detailed valuation?
+requestType.email=By email
+requestType.post=By post
+
+detailedValuationRequested.title=We''ve received your request to view the detailed valuation for {0}
+detailedValuationRequested.page.title=We''ve received your request to view the detailed valuation
+detailedValuationRequested.title.reference=Your reference number is {0}.
+detailedValuationRequested.p.1=We’ll send this to you by {0} within 20 working days.
+
+auto.detailedValuationRequested.title=Request for detailed valuation submitted
+auto.detailedValuationRequested.title.reference=Your reference number is
+
+duplicateRequestDetailedValuation.title=You’ve already requested this detailed valuation.
+duplicateRequestDetailedValuation.request=We’ve received your request for a copy of the detailed valuation for this property in the last 14 days. You should receive your copy by post or email (whichever you chose as your preference) shortly.
+duplicateRequestDetailedValuation.check=If you need to submit a check urgently because of a change in the local area affecting your property, and you’re waiting to receive a copy of your detailed valuation, you should email <a class="govuk-link" href="mailto:ccaservice@voa.gov.uk">ccaservice@voa.gov.uk</a> and ask for your request to be prioritised.
+duplicateRequestDetailedValuation.urgent=You should include ‘Urgent: external Material Change of Circumstances’ in the subject line and include the property address and reference number of your detailed valuation request within the email.
+
+auto.duplicateRequestDetailedValuation.title=You’ve already requested this detailed valuation.
+auto.duplicateRequestDetailedValuation.request=We received your request for this detailed valuation in the last 14 days. It will be available shortly.
+auto.duplicateRequestDetailedValuation.check=If you need to submit a check urgently because of a change in the local area affecting your property, and you’re waiting to receive a copy of your detailed valuation, you should email <a class="govuk-link" href="mailto:ccaservice@voa.gov.uk">ccaservice@voa.gov.uk</a> and ask for your request to be prioritised.
+auto.duplicateRequestDetailedValuation.urgent=You should include ‘Urgent: external Material Change of Circumstances’ in the subject line and include the property address and reference number of your detailed valuation request within the email.
+
+startChallenge.title=Challenge the valuation
+startChallenge.p.1=Your challenge must be submitted within 4 months of the VOA decision, or within 16 months of the date you told the VOA about a change in the surrounding area of your property. You can also submit a challenge if you told the VOA about a change and you haven’t received a decision within 12 months.
+startChallenge.p.2=To submit a challenge you’ll need to <a class="govuk-link" href="{0}">download and complete the form</a>. You can <a class="govuk-link" href="{1}">download guidance for completing the form</a>.
+startChallenge.p.3=You should send the form and any supporting evidence to <a class="govuk-link" href="mailto:ccaservice@voa.gov.uk">ccaservice@voa.gov.uk</a>.
+startChallenge.p.4=Please be aware of the risks before sending any confidential information.
+
+#COMMON
+label.email=Email
+label.confirmedBusinessEmail=Confirm email
+label.firstName=First name
+label.lastName=Last name
+label.dob.day=Date of Birth - Day
+label.dob.month=Date of Birth - Month
+label.dob.year=Date of Birth - Year
+label.nino=NINO
+label.ninoText=National Insurance number
+label.phone=Phone
+label.isAgent=Agent
+label.youCanNow=You can now:
+label.continue=Continue
+label.confirm=Confirm
+label.companyName=Company name
+label.footer.licence=All content is available under the <a class="govuk-link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+label.footer.ogl=Open Government Licence
+label.footer.crown=Crown copyright
+label.date.day=Day
+label.date.month=Month
+label.date.year=Year
+help.date.day.month.year=For example, 12 3 2011
+help.optional.date.day.month.year=For example, 12 3 2011 (Optional)
+error.common.date.mustBeInPast=Must be in the past
+error.common.noValueSelected=Select an option
+error.common.invalid.date=Enter a valid date
+error.booleanMissing=You must select one
+error.subscription.title=There is a problem
+error.noRecords=No matching records found, please search again.
+warning.text=Warning
+common.and=and
+common.or=or
+accessibility.error.label=Error:
+error.common.title=There is a problem
+label.address=Address
+label.localAuthorityReference=Local authority reference
+label.status=Status
+label.search=Search
+label.clear.search=Clear search
+
+label.address.line1=Address line 1
+label.address.line2=Address line 2
+label.address.line3=Address line 3
+label.address.line4=Address line 4
+label.submit=Submit
+label.address.postcode=Postcode
+placeholder.address.line1=Address line 1
+placeholder.address.line2=Address line 2
+placeholder.address.line3=Address line 3
+placeholder.address.line4=Address line 4
+label.findAddress=Find address
+label.findAddress.tryAgain=Try another postcode
+error.postcode=Invalid postcode
+addressLookup.manual=Enter address manually
+addressLookup.lookup=Find address by postcode
+properties.searchYourProperties=Search your properties
+
+link.continue=Continue
+link.back=Back
+link.update=Update
+link.cancel=Cancel
+capacityType.ownerOccupier=Owner occupier
+capacityType.owner=Owner
+capacityType.occupier=Occupier
+label.day=Day
+label.month=Month
+label.year=Year
+error.invalidDate=Enter a valid date
+error.fileUpload.tooLarge=The selected file must be smaller than 10MB
+error.fileUpload.invalidFileType=The selected file must be a PDF or JPG
+link.backToDashboard=Go back to your dashboard
+error.required=This must be filled in
+error.email=Enter a valid email address
+error.max=Must be no more than {0}
+error.min=Must be at least {0}
+error.agentCode=This must be a valid code
+error.label.day=Day
+error.label.month=Month
+error.label.year=Year
+error.boolean=Select an option
+
+
+error.agentCode.required=Enter a valid agent code
+error.isThisYourAgent.required=Select yes if this is your agent
+
+error.oneProperty.required=Select if you want your agent to manage your property
+error.multipleProperties.required=Select if you want your agent to manage any of your properties
+
+#MISC
+alt.newWindow=Opens in a new window
+label.phase=This is a new service – your <a class="govuk-link" href="{0}" target="_blank" id="betaFeedback">feedback <span class="govuk-visually-hidden"> ({1})</span></a> will help us to improve it.
+label.beta=BETA
+label.checkTheForm=Check the form
+label.fixTheFollowing=Fix the following:
+logout.link=Sign out
+label.optional=Optional
+label.required=Required
+
+#PAGINATION
+paginationControls.show=Show
+paginationControls.rows=rows
+
+#DASHBOARD HOME
+agent.dashboard.home.title=Agent dashboard home
+agent.dashboard.home.manageRepresentationRequest.link=Review all outstanding nominations
+agent.dashboard.manageClients.title=Manage clients
+agent.dashboard.manageClients.pending=Requiring a response
+agent.dashboard.manageClients.noClients=There are no existing clients
+agent.dashboard.manageClients.existingClients=Existing clients
+agent.dashboard.manageClients.viewProperties=View all properties
+agent.dashboard.manageProperties.accept=Accept
+agent.dashboard.manageProperties.reject=Reject
+agent.dashboard.manageProperties.acceptAll=Accept all
+agent.dashboard.manageProperties.rejectAll=Reject all
+dashboard.home.usefulLinks.1=How non-domestic property (including plant and machinery) is valued
+dashboard.home.usefulLinks.2=How to check and challenge your rateable value
+
+#Client Properties
+dashboard.clientProperties.title=Client properties
+dashboard.clientProperties.clientName=Properties for {0}
+dashboard.clientProperties.table.1=Address
+dashboard.clientProperties.table.2=Local authority reference
+dashboard.clientProperties.table.3=Permissions
+dashboard.clientProperties.table.4=Actions
+dashboard.clientProperties.revokeClient=Revoke client
+
+#Manage agents
+dashboard.manageAgents.title=Manage agents
+dashboard.manageAgents.pending=Requiring a response
+dashboard.manageAgents.noAgents=You have not appointed any agents yet.
+dashboard.manageAgents.table.1=Agent name
+dashboard.manageAgents.table.2=Agent code
+dashboard.manageAgents.table.3=Actions
+dashboard.manageAgents.viewManagedProperties=View managed properties
+dashboard.manageAgents.howToAppoint=You can go to <a class="govuk-link" href={0}>‘My properties’</a> to appoint an agent for a property.
+
+#details page
+viewDetails.title=My details
+details.user=Business contact details
+details.disclaimer= We are required by law to keep you updated at specific points of your case, so it’s important that we have your correct contact details.
+details.advice=The address you provide should be your preferred postal contact address for your business. It must not be that of your agent or authorised representative.
+details.personal.name=Name
+details.personal.tradingName=Trading Name
+details.personal.address=Address
+details.personal.phone=Telephone
+details.personal.email=Email
+details.personal.mobile=Mobile number
+details.mobile.notSet=Not set
+
+details.business=Business details
+details.business.agentCode=Agent code
+details.business.businessName=Business name
+details.business.businessAddress=Business address
+details.business.businessPhone=Business telephone
+details.business.businessEmail=Business email
+
+details.edit.label.email=Email
+details.edit.label.email.confirm=Confirm email
+details.edit.personalEmail=Update email
+details.edit.label.telephone=Telephone
+details.edit.label.firstName=First name
+details.edit.label.lastName=Last name
+details.edit.label.address=Email
+details.edit.postcode.help=This should be your preferred postal contact address for your business.
+details.edit.phone.help=This should be your preferred contact telephone number for your business.
+details.edit.mobile.help=This should be your preferred contact mobile number for your business.
+details.edit.email.help=This should be your preferred contact email address for your business.
+
+updateName.title=Update your name
+updatePhone.title=Update telephone number
+updateMobile.title=Update mobile number
+updateAddress.title=Update address
+updateEmail.title=Update email
+label.updateMobile=Mobile number
+
+updateBusinessName.title=Update business name
+updateBusinessAddress.title=Update business address
+updateBusinessPhone.title=Update business telephone number
+updateBusinessEmail.title=Update business email
+
+#Search Filter
+no.search.results.found=0 results found
+
+#ERROR PAGES
+title.error.403=Forbidden
+heading.register-error=We’re currently experiencing a high volume of visitors to this site.
+heading.register-error.p1=We’re limiting the number of visitors who can use the service at this time.
+heading.register-error.p2=We apologise for any inconvenience. Please try again later.
+
+title.error.404=Not Found
+title.propertyMissing=This property does not exist.
+dvr.error.description=This property link does not exist for your organisation
+heading.dashboard-error=Thank you for registering to use this service
+heading.dashboard-error.p1=We’re currently experiencing a high volume of visitors to this site.
+heading.dashboard-error.p2=We’re limiting the number of visitors who can use the service at this time.
+heading.dashboard-error.p3=We apologise for any inconvenience. Please try again later.
+
+invalidAccountType.title=You can’t use that Government Gateway account to register for this service.
+invalidAccountType.p.1=You’ve tried to register using an existing Individual or Agent Government Gateway account.
+invalidAccountTypeEnrolment.p.1=You’ve tried to register using an existing Agent Government Gateway account.
+invalidAccountType.p.2=To register for this service you’ll need to use an Organisation Government Gateway account.
+invalidAccountTypeEnrolment.p.2=To register for this service you’ll need to use an Organisation or Individual Government Gateway account.
+invalidAccountType.p.3=You can continue to register for this service where you’ll be able to create the correct Government Gateway account.
+invalidAccountType.register=Register for the service
+
+serviceUnavailable.title=Service unavailable
+serviceUnavailable.p.1=The file upload service is currently unavailable.
+serviceUnavailable.p.2=We’re unable to complete your property link at this time.
+serviceUnavailable.p.3=We apologise for any inconvenience. Please try again later.
+
+##FOOTER LINKS
+footer.link.help=Help
+footer.link.feedback=Feedback
+footer.link.cookies=Cookies
+footer.link.termsAndConditions=Terms and conditions
+footer.link.privacy=Privacy policy
+footer.link.voa=Valuation Office Agency
+footer.links.accessibility.text=Accessibility statement
+
+##CONTACT US
+contactUs.heading1=We’re unable to continue with this request.
+contactUs.heading2=Please contact us
+contactUs.email=Email
+contactUs.emailaddress=<a class="govuk-link" href="mailto:{0}">{0}</a>
+contactUs.telephone=<p>Due to the outbreak of Covid-19 we are currently unable to offer a telephony service and it will take longer than usual to respond to your query. If you need to contact us please use our <a class="govuk-link" href="https://www.gov.uk/contact-voa">Contact Form</a> and we will respond as soon as possible. We’re sorry for any inconvenience this has caused.</p>
+contactUs.telephone.number=
+#contactUs.telephone.number=03000 501 501
+contactUs.telephone.openhours=Opening hours: 8:30am to 5:00pm Monday to Friday. Closed on bank holidays.
+
+##GET HELP
+getHelpLink=Report a problem with this page
+getHelpContent=<p>If you are having trouble using this service, you can contact us for help.</p><p>Email address: <a href="mailto:{0}" class="govuk-link">{0}</a></p>
+
+
+##ADD USER TO GG
+addUserToGG.heading=Add another user to your Government Gateway account
+addUserToGG.p1=You''ll need to be an administrator for the Government Gateway account to add users. You''re an administrator if you created the Government Gateway account, or if you''ve been added as an administrator to the account. We recommend you have at least 2 administrators for your organisation.
+addUserToGG.p2=You should be aware that if you add an agent to your Government Gateway account, they''ll have the same access rights as other assistant users within your organisation.
+addUserToGG.p3=You can add a user on the next screen by selecting “Account users” then “Manage users”.
+addUserToGG.l1=Add a user
+
+#TECHNICAL DIFFICULTIES
+internalServerError.p.1=Please try again in a few minutes.
+internalServerError.p.2=If you continue to experience problems, please contact us on 03000 501 501. You’ll need to tell us the date, time and your reference number.
+internalServerError.reference=Reference number: {0}
+internalServerError.date=Date: {0}
+internalServerError.time=Time: {0}
+
+#DECLINED PROPERTY HELP
+help.declined=Property link declined by the VOA
+help.declined.p1=The property link has been declined by the VOA. If you believe this has been declined in error, please contact the VOA.
+help.declined.p2=<p>Due to the outbreak of Covid-19 we are currently unable to offer a telephony service and it will take longer than usual to respond to your query. If you need to contact us please use our <a class="govuk-link" href="https://www.gov.uk/contact-voa">Contact Form</a> and we will respond as soon as possible. We’re sorry for any inconvenience this has caused.</p>
+#help.declined.p2=Telephone: 03000 501 501
+declined.getHelp=Declined help
+label.close=Close
+
+#AGENT REQUEST WARNING
+agent.request.warning=We''ve temporarily removed the ''Date requested'' column while we fix a technical issue. There is currently no time limit to accept requests.
+agent.request.actions.single.info.accept=You have accepted {0} agent request
+agent.request.actions.multiple.info.accept=You have accepted {0} agent requests
+agent.request.actions.single.info.reject=You have rejected {0} agent request
+agent.request.actions.multiple.info.reject=You have rejected {0} agent requests
+
+#MESSAGES TAB
+messages.title=Messages
+messages.noMessages=There are no messages to display
+messages.th.lastRead=Status
+messages.th.subject=Subject
+messages.th.address=Address
+messages.th.caseReference=Reference
+messages.th.clientName=Client
+messages.th.effectiveDate=Received at
+messages.read=Read 
+messages.unread=Unread
+messages.paginationInfo=Page {0} of {1}
+messages.search=Search for {0}
+messages.pageSize.showing=Showing
+messages.pageSize.perPage=messages per page
+
+#CHALLENGE
+challenge.valuation.heading=Challenge this valuation
+challenge.valuation.challenge=If you disagree with the valuation on a property you can make a challenge. If you haven’t started a check on the property yet you need to do so before making a challenge.
+challenge.valuation.timeFrame=Your challenge must be made within 4 months of our decision, or within 16 months of the date you told us about a change in the surrounding area of your property. You can also make a challenge if you told us about a change and we haven’t made a decision within 12 months.
+challenge.valuation.beforeStarting=Before you start
+challenge.valuation.eligibility=You’ll need to confirm why you’re eligible to make a challenge. The challenge form will only be available after you’ve selected one of these options:
+challenge.valuation.b1=I received my check decision less than 4 months ago
+challenge.valuation.b2=I submitted a check more than 12 months ago and I have not had a decision
+challenge.valuation.b3=I submitted a check in the last 16 months and want to tell you about a change to the surrounding area of my property
+
+challenge.valuation.whatToDo=What you need to do
+challenge.valuation.makeChallenge=You’ll need to
+challenge.valuation.download=download and complete the challenge form
+challenge.valuation.also=You should also
+challenge.valuation.guidance=download and read the guidance
+challenge.valuation.completing=before completing the form.
+challenge.valuation.supportingEvidence=You can send the challenge form, along with your supporting evidence, to
+challenge.valuation.email=ccaservice@voa.gov.uk
+challenge.valuation.post=or post it to:
+challenge.valuation.address1=Check and challenge service
+challenge.valuation.address2=PO Box 308
+challenge.valuation.address3=PLYMOUTH
+challenge.valuation.address4=PL5 9DT
+challenge.valuation.risks=Please be aware of the risks before sending any confidential information.
+
+#CHECK RECEIVED MESSAGE
+checkReceived.title=Check acknowledgement
+checkReceived.subject=Subject: {0}
+checkReceived.reference=Check reference number: {0}
+checkReceived.address=Property: {0}
+checkReceived.owner=Owner/occupier: {0}
+checkReceived.agent=Agent: {0}
+checkReceived.timestamp=Received: {0}
+checkReceived.unrepresented.checkCase.1=We have received your Check case for the property on {0}.
+checkReceived.represented.checkCase.1=We have received a Check case from your agent for the property on {0}.
+checkReceived.agent.checkCase.1=We have received the Check case you have made on behalf of your client for the property on {0}.
+checkReceived.summaryLink.text=You can view a summary of the check here
+checkReceived.whatNow=What you need to do
+checkReceived.furtherInfo=You don''t need to do anything, we will contact you if we need further information or evidence.
+checkReceived.print=Print this message
+checkReceived.download=Download this message as a PDF
+checkReceived.whatNext=What happens next
+checkReceived.responseTime=We aim to provide a response within 12 weeks. We prioritise cases from smaller proposers. Some complex cases may take longer to resolve. 
+checkReceived.valuation=The information submitted as part of the Check case may cause your valuation to go up as well as down.
+checkReceived.moreInfo=You can find more information on the Check and Challenge service by searching for ''Check and Challenge'' on the <a class="govuk-link" href="https://www.gov.uk/search?q=check+and+challenge">GOV.UK</a> website.
+checkReceived.template.valuationOffice=Valuation Office Agency
+checkReceived.unknownTemplate=Unknown message template: {0}
+link.summary=View Summary
+
+#PAGINATION CONTROLS
+pagination.next=Next
+pagination.previous=Previous
+
+#DOWNTIME PAGE
+plannedImprovements.title=Service unavailable
+plannedImprovements.p1=The check and challenge service will be unavailable from 5pm until 6pm on Monday 30 July for essential maintenance, and from 5pm on Tuesday 31 July until 1am on Wednesday 1 August while we make some planned improvements.
+plannedImprovements.p2=You will not be able to access the service during this time and we apologise for any inconvenience this may cause you.
+plannedImprovements.p3=We''re making improvements to the service in response to customer feedback, which gives customers an easier way to tell us about other additions to their property during a check, without the need to upload documents
+plannedImprovements.b1=adding a new ''messages'' tab to the dashboard, where you can view received correspondence
+plannedImprovements.b2=automatically sending you an acknowledgment email when we''ve received your check through the online service (for a shop, warehouse, office or factory)
+plannedImprovements.b3=providing a summary of your submitted check via the dashboard, and the option to download a PDF version
+
+#ENROLMENT
+label.postal.address = Postal address
+label.telephone.number = Telephone number
+label.correspondence.email.address = Correspondence email address
+label.createAccount.firstName= First Name
+label.createAccount.lastName= Last Name
+label.createAccount.phone= Phone Number
+label.your.details= Your details
+label.createAccount.tradingName=Trading Name
+
+choice.individual=Individual (you represent yourself) – you won’t be able to add others to this account
+choice.organisation=Organisation (you represent a business, charity or other organisation) – you’ll be able to add others to this account
+account.enrolment.link.text=Go To Dashboard
+account.enrolment.link.success=Continue
+account.enrolment.description=As part of the registration for the check and challenge service, you’ve been given a personal ID number. You should keep a note of this number in a safe place as you’ll need it if you want to reset your password.
+account.enrolment.description.existing=As part of the ongoing improvements to the check and challenge service, we’re giving you a personal ID number. You should keep a note of this number in a safe place as you will need it if you want to reset your password.
+account.enrolment.personId=Your ID number is {0}
+account.enrolment.disclaimer=You will not need it to sign in to the check and challenge service – you should continue to use your Government Gateway details to sign in.
+account.enrolment.footer=Valuation Office Agency (VOA)
+
+create.success.keepNote=You should keep a note of this number in a safe place as you’ll need it if you want to reset your password.
+create.success.keepUsingGg=You will not need it to sign in to the check and challenge service – you should continue to use your Government Gateway details to sign in.
+create.success.personId=VOA Personal ID:
+create-account.type.question=Which type of account would you like to create?
+
+enrolment.title = Complete your contact details
+enrolment.organisation.name = Business name
+enrolment.organisation.name.label = Organisation name
+
+enrolment.assistant.hint = You have been added as a user to your organisation, please confirm your details below
+enrolment.assistant.organisation.details.title = Your organisation details
+
+label.mobilePhone = Mobile number
+optional.label = Optional
+enrolment.tradeName = Trading name (Optional)
+enrolment.mobphone = Mobile number
+enrolment.phone = Telephone number
+enrolment.confirmedEmail = Confirm email address
+enrolment.email = Email address
+enrolment.firstName = First name
+enrolment.lastName = Last name
+enrolment.address1 = Address line 1
+enrolment.address2 = Address line 2
+enrolment.address3 = Address line 3
+enrolment.address4 = Address line 4
+enrolment.postcode = Postcode
+enrolment.businessPhoneNumber = Business telephone number
+enrolment.phoneNumber = Telephone number
+enrolment.mobileNumber = Mobile number
+enrolment.emailAddress = Business email address
+enrolment.emailAddress.hint = This should be your email address and not your agent’s. The email address should be monitored
+enrolment.tradingName = Trading name
+enrolment.confirmEmailAddress = Confirm business email address
+enrolment.organisation.individualOrCompany = Do you want to register as an agent?
+enrolment.yes = Yes
+enrolment.no = No
+enrolment.businessName = Business name
+
+before.you.start.title=Claim a property
+before.you.start.p1=Most of the valuation information about your property is confidential and not available to everyone. By claiming a property, you’re proving you have the right to see this information and discuss it with the Valuation Office Agency.
+before.you.start.p2=To claim a property, search for it on the next page then click on ''claim this property'' and follow the instructions.
+before.you.start.p3=You''ll need to provide evidence of your link to the property. The best evidence for this is a business rates bill as it shows the property address, local authority reference and who''s responsible for the bill. If you can''t provide a business rates bill, you can provide other evidence that shows you either own or occupy the property, such as utility bills.
+before.you.start.p4=Once you''ve claimed your property, it can take up to 15 working days to be approved.
+
+before.you.start.startButton=Start
+
+#COMMON
+app.common.saveAndContinue = Save and continue
+app.common.yes = Yes
+app.common.no = No
+common.titleSuffix=- Valuation Office Agency - GOV.UK
+common.localAuthorityReference=Local authority reference:
+
+
+#Registration Failure
+registration.error.title=You are unable to register
+registration.error.heading=Registration failed
+registration.error.p1=You can’t register until the Administrator from your organisation registers first.
+registration.error.p2=You’ll need to speak to the person that gave you your Government Gateway sign-in details.
+
+#challenge
+
+challengeRules.summary=Help with Check cases and Challenge cases
+challengeRules.p1=A Check case lets you tell us that property details are correct or need changing. We may accept your changes and adjust the rateable value.
+challengeRules.p2=A Challenge case lets you tell us you think the rateable value is too high. You can explain what you think it should be and provide evidence to support what you say. We may accept your challenge and change the rateable value.
+challengeRules.p3=You must complete a Check case before sending a Challenge case.
+challengeRules.rules=You can send us a Challenge case:
+challengeRules.rules.1=within 4 months of our Check case decision
+challengeRules.rules.2=within 16 months of you sending a Check case if the challenge is about a change in the local area, such as long-term roadworks
+challengeRules.rules.3=if we have not made a decision on your Check case after 12 months of you sending it to us
+challengeRules.rules.paper=If you have no Check cases but think you should be able to send us a Challenge case, <a id="download-challenge-form-link" class="govuk-link" href="{0}"> download and complete a Challenge form</a>.
+## TIME OUT DIALOG
+timeout.dialog.title = You are about to be timed out
+
+##Business rate attachments
+supportingDocuments.defaultError=Unknown/Extension missing
+remove.file=Remove file
+error.summary.title=There is a problem
+error.summary.text=Check the following
+error.businessRatesAttachment.unavailable=The selected file could not be uploaded – try again
+error.upscan.unavailable=The selected file could not be uploaded – try again
+error.businessRatesAttachment.file.size.exceed.max.limit=The selected file must be smaller than 10MB
+error.businessRatesAttachment.evidence.not.selected=Select evidence type
+error.businessRatesAttachment.ratesBill.not.selected=Select a rates bill
+error.businessRatesAttachment.file.not.selected=Select a file
+error.businessRatesAttachment.does.not.support.file.types=The selected file must be a Word doc, Excel sheet, PDF, PNG or JPG
+businessRatesAttachment.file.size.reached.max.limit=You have uploaded 1 file, the maximum allowable limit
+fileupload.support.documents.size.reached.max.limit=You have uploaded 1 file, the maximum allowable limit
+fileupload.pleaseWait=Please wait whilst your file is uploading. This may take some time.
+
+#Javascript Error messages
+label.selectValue=Select an address
+addressHelp=This should be your preferred postal contact address for your business.
+error.postcodeLookupError=Enter a valid postcode

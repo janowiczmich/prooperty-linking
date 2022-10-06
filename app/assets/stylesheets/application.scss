@@ -1,0 +1,105 @@
+$govuk-assets-path: "/business-rates-property-linking/assets/lib/govuk-frontend/govuk/assets/";
+$hmrc-assets-path: "/business-rates-property-linking/assets/lib/hmrc-frontend/hmrc/";
+
+@import "lib/govuk-frontend/govuk/all";
+@import "lib/hmrc-frontend/hmrc/all";
+@import 'sortable';
+
+.app-reference-number {
+  display: block;
+  font-weight: bold;
+}
+
+.new-centered-content {
+    display: block;
+    max-width: 960px;
+    margin: 0 auto;
+    font-family: "nta",Arial,sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+.notification-banner {
+  color: #FFFFFF;
+  font-weight: bold;
+  background-color: #1d70b8;
+  padding-bottom: 5px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.notification-banner a {
+  color: #FFFFFF;
+}
+
+.notification-banner p {
+  margin: 0;
+  font-weight: bold;
+}
+
+@media (min-width: 769px) {
+  .notification-banner p {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
+
+details#report-a-problem {
+    margin-top: 3em;
+}
+
+.pagination{
+    float: right;
+}
+.pagination li{
+    display:inline-block;
+    margin:0 .2em
+}
+.pagination li.disabled a{
+    color:#6f777b;
+    text-decoration:none;
+    display:inline-block
+}
+.pagination li.next{
+    margin-right:0
+}
+.pagination li.previous{
+    margin-left:0
+}
+.pagination li .current{
+    text-decoration:none;
+    color:#0b0c0c
+}
+
+.centre{
+    text-align: center
+}
+.cca-nowrap {
+    white-space: nowrap;
+}
+
+.break-word {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    max-width: 7em;
+}
+
+.cca-menu-account {
+  float: right;
+  margin-top: 13px;
+  margin-bottom: 0;
+  li {
+    float: left;
+    padding-right: 7px;
+    padding-left: 7px;
+    + li {
+      border-left: 1px solid $govuk-border-colour;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}

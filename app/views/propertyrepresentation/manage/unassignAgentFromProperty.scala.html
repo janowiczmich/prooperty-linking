@@ -1,0 +1,52 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import actions.requests.BasicAuthenticatedRequest
+@import uk.gov.hmrc.govukfrontend.views.html.components.implicits._
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import models.propertyrepresentation.ManageAgentOptionItem
+@import models.propertyrepresentation.ManageAgentOptions
+@import models.propertyrepresentation.UnassignFromAllProperties
+@import models.propertyrepresentation.AgentAppointmentChangesRequest
+@import models.propertyrepresentation.AgentSummary
+@import binders.propertylinks.GetPropertyLinksParameters
+@import binders.pagination.PaginationParameters
+@import config.ApplicationConfig
+@import models.propertyrepresentation.AppointmentScope.ALL_PROPERTIES
+
+@this(govukErrorSummary : GovukErrorSummary, govukRadios : GovukRadios, govukButton : GovukButton, mainLayout: views.html.mainLayout, formWithCSRF: FormWithCSRF)
+
+@(form: Form[AgentAppointmentChangesRequest], agent: AgentSummary, backLink: String)(implicit request: Request[_], messages: Messages, config: ApplicationConfig)
+
+@mainLayout(
+    pageTitle = messages("propertyRepresentation.manageAgent.unassignFromProperty.title"),
+    backUri = Some(backLink),
+    hasErrors = form.hasErrors
+) {
+
+    @if(form.errors.nonEmpty) {
+        @govukErrorSummary(ErrorSummary(errorList = form.errors.asTextErrorLinks, title = Text(messages("error.propertyRepresentation.title"))))
+    }
+    <h1 class="govuk-heading-l">@messages("propertyRepresentation.manageAgent.unassignFromProperty.question", agent.name)</h1>
+
+    @formWithCSRF(action = controllers.agent.routes.ManageAgentController.unassignAgentFromAll(agent.representativeCode, agent.name)) {
+        <input type="hidden" name="agentCode" value="@agent.representativeCode">
+        <input type="hidden" name="scope" value="@ALL_PROPERTIES.toString">
+        @govukButton(Button(content = Text(messages("propertyRepresentation.manageAgent.unassignFromProperty.confirm"))))
+    }
+    <a class="govuk-link" href="@config.dashboardUrl("home")">@messages("propertyRepresentation.manageAgent.unassignFromProperty.cancel")</a>
+
+}

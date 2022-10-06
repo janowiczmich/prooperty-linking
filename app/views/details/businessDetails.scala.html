@@ -1,0 +1,72 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import utils.Formatters
+@import models.registration.UserDetails
+@import uk.gov.hmrc.auth.core.Assistant
+@(organisationAccount: GroupAccount, businessAddress: Address, userDetails: UserDetails)(implicit request: Request[_], messages: Messages)
+
+@isAssistant = @{
+    userDetails.credentialRole match {
+        case Assistant => true
+        case _         => false
+    }
+}
+
+
+    @tableRow(key: String, value: String, link: Call) = {
+        <tr>
+            <td>@messages(s"details.business.$key")</td>
+            <td>@value</td>
+            <td>
+                @if(!isAssistant){
+                <a id="update@key.capitalize" href="@link">@messages("link.update")</a>
+                }
+            </td>
+        </tr>
+    }
+
+    <h3 class="heading-medium">@messages("details.business")</h3>
+
+    @if(!isAssistant) {
+        <p>
+            <a href="@routes.Application.addUserToGG">@messages("dashboard.home.addAnotherUser.link")</a>
+        </p>
+    }
+
+    <div class="table-wrapper">
+        <table id="businessDetailsTable" class="table-font-xsmall margin-top-30 margin-bottom-20">
+            <caption class="govuk-visually-hidden">@messages("details.business")</caption>
+            <colgroup>
+                <col style="width: 45%">
+                <col style="width: 45%">
+                <col style="width: 10%">
+            </colgroup>
+            <tbody>
+                @if(organisationAccount.isAgent) {
+                    <tr>
+                        <td>@messages("details.business.agentCode")</td>
+                        <td>@organisationAccount.agentCode</td>
+                        <td></td>
+                    </tr>
+                }
+                @tableRow("businessName", organisationAccount.companyName, controllers.manageDetails.routes.UpdateOrganisationDetails.viewBusinessName)
+                @tableRow("businessAddress", Formatters.capitalizedAddress(businessAddress), controllers.manageDetails.routes.UpdateOrganisationDetails.viewBusinessAddress)
+                @tableRow("businessPhone", organisationAccount.phone, controllers.manageDetails.routes.UpdateOrganisationDetails.viewBusinessPhone)
+                @tableRow("businessEmail", organisationAccount.email, controllers.manageDetails.routes.UpdateOrganisationDetails.viewBusinessEmail)
+            </tbody>
+        </table>
+    </div>

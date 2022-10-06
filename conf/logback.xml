@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+      <pattern>%date{ISO8601} level=[%level] logger=[%logger] thread=[%thread] rid=[%X{X-Request-ID}] user=[%X{Authorization}] message=[%message] %replace(exception=[%xException]){'^exception=\[\]$',''}%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="application" level="DEBUG"/>
+
+  <logger name="uk.gov" level="${logger.uk.gov:-DEBUG}"/>
+  <logger name="voa.submission" level="${logger.voa.submission:-DEBUG}"/>
+
+  <logger name="com.google.inject" level="WARN"/>
+  <logger name="reactivemongo" level="WARN"/>
+  <logger name="play" level="WARN"/>
+  <logger name="akka" level="WARN"/>
+  <logger name="uk.gov.hmrc.audit" level="WARN"/>
+  <logger name="auditCounter" level="WARN"/>
+  <logger name="uk.gov.hmrc.play.bootstrap" level="WARN"/>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT"/>
+  </root>
+</configuration>

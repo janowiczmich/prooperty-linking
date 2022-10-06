@@ -1,0 +1,109 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import _root_.utils.FrontendComponentHelper._
+@import _root_.utils.Formatters._
+@import actions.propertylinking.requests.LinkingSessionRequest
+@import config.ApplicationConfig
+@import controllers.propertyLinking.ClaimPropertyOwnershipVM
+@import views.html.includes.assessmentHeading
+@import helpers._
+
+@this(govukErrorSummary : GovukErrorSummary, govukDetails:GovukDetails, govukRadios : GovukRadios, govukButton : GovukButton, govukInput: GovukInput, dateFields: dateFields, mainLayout: views.html.mainLayout, formWithCSRF: FormWithCSRF)
+
+@(model: ClaimPropertyOwnershipVM, clientDetails: Option[ClientDetails] = None, backLink: String)(implicit request: LinkingSessionRequest[_], messages: Messages, config: ApplicationConfig)
+
+@form = @{model.form}
+
+@clientSuffix = @{clientDetails.fold("")(_ => ".client")}
+
+@mainLayout(
+    pageTitle = messages(s"declareCapacity.title$clientSuffix"),
+    backUri = Some(backLink),
+    hasErrors = form.hasErrors
+) {
+    @if(form.errors.nonEmpty) {
+        @govukErrorSummary(
+            ErrorSummary(
+                errorList = formatErrorMessages(
+                    form,
+                    "fromDate",
+                    clientSuffix,
+                    manualDateErrorHandler = {
+                        case e @ "interestedOnOrBefore.error.startDateMustBeBeforeEnd" =>
+                            messages(
+                                e + clientSuffix,
+                                request.ses.propertyRelationship.map(_.capacity).fold(
+                                    messages("interestedOnOrBefore.error.startDateMustBeBeforeEnd.relationship.fallback"))(
+                                    _.name.replace("_", s" ${messages("common.and")} ").toLowerCase),
+                                request.ses.propertyOccupancy.flatMap(_.lastOccupiedDate).fold(
+                                    messages("interestedOnOrBefore.error.startDateMustBeBeforeEnd.endDate.fallback"))(
+                                    formatDate)
+                            )
+                    }),
+                title = Text(messages("error.propertyRepresentation.title"))
+            )
+        )
+    }
+
+    @assessmentHeading(model.localAuthorityReference, model.address)
+
+    <span class="govuk-caption-l">@messages("caption.add.property")</span>
+    <h1 class="govuk-heading-l">@messages(s"declareCapacity.title$clientSuffix")</h1>
+
+    @govukDetails(Details(
+        summary = Text(messages(s"declareCapacity.panel.title$clientSuffix")),
+        content = HtmlContent(messages(s"declareCapacity.panel.text$clientSuffix"))
+    ))
+
+    @formWithCSRF(action = controllers.propertyLinking.routes.ClaimPropertyOwnershipController.submitOwnership()) {
+
+        @govukRadios(Radios(
+            fieldset = Some(Fieldset(
+                legend = Some(Legend(
+                    content = Text(messages(s"label.interestedOnOrBefore$clientSuffix")),
+                    classes = "govuk-fieldset__legend--m",
+                    isPageHeading = true
+                ))
+            )),
+            idPrefix = Some("interestedOnOrBefore"),
+            name = "interestedOnOrBefore",
+            items = Seq(
+                RadioItem(
+                    content = Text(messages("interestedOnOrBefore.true", formatDate(model.onOrBeforeDate))),
+                    value = Some("true")
+                ),
+                RadioItem(
+                    content = Text(messages("interestedOnOrBefore.false", formatDate(model.onOrBeforeDate))),
+                    value = Some("false"),
+                    conditionalHtml = Some(
+                        dateFields(
+                            form = form,
+                            fieldName = "fromDate",
+                            hintDateOverride = Some(model.onOrBeforeDate.plusDays(1)),
+                            label = Some(s"label.fromDate$clientSuffix")))
+                )
+            )
+        ).withFormField(form("interestedOnOrBefore")))
+
+        @govukButton(
+            Button(
+                content = Text(messages("label.continue")),
+                attributes = Map("id" -> "continue")
+            )
+        )
+    }
+}

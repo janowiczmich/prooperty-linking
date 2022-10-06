@@ -1,0 +1,70 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import config.ApplicationConfig
+@import views.html.mainLayout
+@import uk.gov.hmrc.govukfrontend.views.html.components._
+@import helpers._
+@import uk.gov.hmrc.govukfrontend.views.Implicits.RichRadios
+
+@this(mainLayout: mainLayout, govukButton: GovukButton, govukRadios: GovukRadios, formWithCSRF: FormWithCSRF, govukErrorSummary: GovukErrorSummary)
+
+@(form: Form[_])(implicit request: Request[_], messages: Messages, config: ApplicationConfig)
+
+
+@mainLayout(
+    pageTitle = messages("accountType.heading"),
+    backUri = Some(controllers.registration.routes.DoYouHaveAccountController.show().url),
+    mainClass = Some("govuk-grid-column-two-thirds"),
+    hasErrors = form.hasErrors
+
+){
+    @formErrorSummary(form)(govukErrorSummary)
+
+    @formWithCSRF(action = controllers.registration.routes.AccountTypeController.submit()){
+        @govukRadios(Radios(
+            fieldset = Some(Fieldset(
+                legend = Some(Legend(
+                    content = Text(messages("accountType.heading")),
+                    classes = "govuk-fieldset__legend--l",
+                    isPageHeading = true
+                ))
+            )),
+            name = "accountTypeIndividual",
+            items = Seq(
+                RadioItem(
+                    content = Text(messages("accountType.individual")),
+                    value = Some("true"),
+                    hint = Some(Hint(
+                        content = Text(messages("accountType.individual.helpText"))
+                    ))
+                ),
+                RadioItem(
+                    content = Text(messages("accountType.orgOrAgent")),
+                    value = Some("false"),
+                    hint = Some(Hint(
+                        content = Text(messages("accountType.orgOrAgent.helpText"))
+                    ))
+                )
+            )
+        ).withFormField(form("accountTypeIndividual")))
+
+        @govukButton(Button(
+            content = Text(messages("govGateway.button")),
+            attributes = Map("id" -> "continue")
+        ))
+    }
+}

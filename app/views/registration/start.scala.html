@@ -1,0 +1,62 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import config.ApplicationConfig
+@import views.html.mainLayout
+
+@this(mainLayout: mainLayout, govukInsetText: GovukInsetText, govukButton: GovukButton)
+
+@(data: Form[String])(implicit request: Request[_], messages: Messages, config: ApplicationConfig)
+
+@mainLayout(
+    pageTitle = messages("start.heading.register"),
+    backUri = Some(config.dashboardUrl("home")),
+    showTopNavigation = false,
+    mainClass = Some("govuk-grid-column-two-thirds")
+){
+    <h2 class="govuk-heading-xl">@messages("start.heading.register")</h2>
+
+    <p class="govuk-body">@messages("start.registration.p.1")</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>@messages("start.registration.bp.1")</li>
+        <li>@messages("start.registration.bp.2")</li>
+        <li>@messages("start.registration.bp.3")</li>
+    </ul>
+    <p class="govuk-body">@Html(Messages("start.registration.p.2", routes.Login.show))</p>
+    <p class="govuk-body">@Html(Messages("start.registration.p.3", routes.Application.addUserToGG))</p>
+
+    @govukButton(Button(
+        isStartButton = true,
+        content = Text(messages("start.registration.button")),
+        href = Some(controllers.registration.routes.DoYouHaveAccountController.show().url),
+        attributes = Map("id" -> "startButton")
+    ))
+    <h4 class="govuk-label govuk-label--m">@messages("start.registration.h4")</h4>
+    <p class="govuk-body">@messages("start.registration.p.4")</p>
+    <p class="govuk-body">@messages("start.registration.p.5")</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>@messages("start.registration.bp.4")</li>
+        <li>@messages("start.registration.bp.5")</li>
+        <li>@messages("start.registration.bp.6")</li>
+        <li>@messages("start.registration.bp.7")</li>
+        <li>@messages("start.registration.bp.8")</li>
+        <li>@messages("start.registration.bp.9")</li>
+    </ul>
+    @govukInsetText(InsetText(
+        content = HtmlContent(messages("start.registration.p6"))
+    ))
+
+}

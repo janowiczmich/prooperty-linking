@@ -1,0 +1,61 @@
+
+.pager {
+  margin-top: 2em;
+  li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+
+.lte-ie8 {
+  .pager {
+    li {
+      *float: left;
+      *display: inline-block;
+    }
+  }
+}
+
+.paginationBlock {
+  float: right;
+  text-align: right;
+}
+
+.showResults {
+  display: inline-block;
+  margin: 0;
+  & li {
+    display: inline-block;
+    margin: 0px 5px 0 0;
+  }
+  & li:first-child {
+    margin-left: 5px;
+  }
+}
+
+.pagination {
+
+  list-style-type: none;
+  li {
+    display: inline-block;
+    margin: 0 .2em;
+    &.disabled a {
+      color: $grey-1;
+      text-decoration: none;
+      display: inline-block;
+    }
+    &.next {
+      margin-right: 0;
+    }
+    &.previous {
+      margin-left: 0;
+    }
+    .current {
+      text-decoration: none;
+      color: $black;
+    }
+  }
+  > li:first-child {
+    margin-left: 0;
+  }
+}

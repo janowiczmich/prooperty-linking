@@ -1,0 +1,158 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import actions.assessments.request.AssessmentsPageSessionRequest
+@import _root_.utils.Formatters
+@import config.ApplicationConfig
+
+
+@(model: controllers.AssessmentsVM, owner: Boolean, govukDetails: GovukDetails)(implicit request: AssessmentsPageSessionRequest[_], messages: Messages, config: ApplicationConfig)
+
+@tableHeaderRow = {
+    <tr class="govuk-table__row">
+        <th class="govuk-table__cell"><span>@messages("assessments.table.1")</span></th>
+        <th class="govuk-table__cell"><span>@messages("assessments.table.2")</span></th>
+        <th class="govuk-table__cell"><span>@messages("assessments.table.3")</span></th>
+        <th class="govuk-table__cell"><span>@messages("assessments.table.4")</span></th>
+        <th class="govuk-table__cell"><span>@messages("assessments.table.5")</span></th>
+        <th class="govuk-table__cell"><span>@messages("assessments.table.action")</span></th>
+    </tr>
+}
+
+@effectiveDate(assessment: ApiAssessment) = @{
+    assessment.effectiveDate.map(Formatters.formatDate).getOrElse("")
+}
+
+@fromDate(assessment: ApiAssessment) = @{
+    assessment.currentFromDate.map(Formatters.formatDate).getOrElse("")
+}
+
+@endDate(assessment: ApiAssessment, isDraft: Boolean) = @{
+    if(!isDraft) {
+        (assessment.currentFromDate, assessment.currentToDate) match {
+            case (Some(_), None)     => Some(Messages("assessments.enddate.present"))
+            case (Some(_), Some(to)) => Some(Formatters.formatDate(to))
+            case _                   => None
+        }
+    } else None
+}
+
+@ariaLabel(assessment: ApiAssessment, tableType: String, isDraft: Boolean) = @{
+    val typeText = messages(s"assessments.$tableType.text")
+    val fromText = fromDate(assessment)
+    endDate(assessment, isDraft)
+      .fold(messages("assessments.aria.label.partial", typeText, fromText)) { to =>
+        messages("assessments.aria.label.full", typeText, fromText, to)
+    }
+}
+
+@table(list: Seq[(String, ApiAssessment)], tableType: String, isDraft: Boolean) = {
+    <div class="form-group">
+        <div class="table-wrapper-no-pad">
+            <table id="@{tableType}Assessments" class="margin-bottom-10 margin-top-10">
+                <caption class="govuk-visually-hidden">@messages("assessments.table.caption")</caption>
+                <colgroup>
+                    <col style="width: 16%">
+                    <col style="width: 16%">
+                    <col style="width: 16%">
+                    <col style="width: 16%">
+                    <col style="width: 16%">
+                    <col style="width: 20%">
+                </colgroup>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__cell"><span>@messages("assessments.table.1")</span></th>
+                        <th class="govuk-table__cell"><span>@messages("assessments.table.2")</span></th>
+                        <th class="govuk-table__cell"><span>@messages("assessments.table.3")</span></th>
+                        <th class="govuk-table__cell"><span>@messages("assessments.table.4")</span></th>
+                        <th class="govuk-table__cell"><span>@messages("assessments.table.5")</span></th>
+                        <th class="govuk-table__cell"><span>@messages("assessments.table.action")</span></th>
+                    </tr>
+
+                    @list.map {  case (url, assessment) =>
+                    <tr class="govuk-table__row">
+
+                        <td class="govuk-table__cell">@effectiveDate(assessment)</td>
+
+                        <td class="govuk-table__cell">
+                        @assessment.rateableValue.fold(messages("assessments.na"))(rv => Formatters.formatCurrencyRoundedToPounds(rv))
+                        </td>
+
+                        <td class="govuk-table__cell">
+                        @model.capacity.fold("")(cap => messages(s"capacity.$cap"))
+                        </td>
+
+                        <td class="govuk-table__cell">@fromDate(assessment)</td>
+
+                        <td class="govuk-table__cell">@endDate(assessment, isDraft).getOrElse("")</td>
+
+                        <td class="govuk-table__cell">
+                        @assessment.rateableValue match {
+                            case Some(rv) => {
+                                <a class="govuk-link"
+                                id="viewAssessmentLink-@assessment.assessmentRef"
+                                href="@url"
+                                aria-label="@ariaLabel(assessment, tableType, isDraft)">
+                                @messages("assessments.select.valuation")
+                                </a>
+                            }
+                            case None => {
+                                @messages("assessments.na")
+                            }
+                        }
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+
+@noRateableValueContent = {
+    <p class="govuk-body">@messages("rv.na.p.1")</p>
+    <p class="govuk-body">@messages("rv.na.p.2")</p>
+    <p class="govuk-body">@Html(messages("rv.na.p.3"))</p>
+}
+
+<div id="details-content-valuations" class="govuk-body">
+
+    @if(model.currentAssessments.nonEmpty){
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">@messages("assessments.current.title")</h2>
+        @table(model.currentAssessments, tableType = "current", isDraft = false)
+        @if(model.currentAssessments.exists(a => a._2.rateableValue.isEmpty)){
+            @govukDetails(
+                Details(
+                    summary = Text(messages("rv.na")),
+                    content = HtmlContent(noRateableValueContent) ))
+        }
+    }
+
+    @if(model.currentAssessments.isEmpty && model.draftAssessments.isEmpty && model.historicAssessments.nonEmpty){
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">@messages("assessments.propertyRemoved")</h2>
+    }
+
+    @if(model.draftAssessments.nonEmpty){
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">@messages("assessments.draft.title")</h2>
+        @table(model.draftAssessments, tableType = "draft", isDraft = true)
+    }
+
+    @if(model.historicAssessments.nonEmpty){
+        <h2 class="govuk-heading-m govuk-!-margin-top-9">@messages("assessments.historic.title")</h2>
+        @table(model.historicAssessments, tableType = "historic", isDraft = false)
+    }
+
+</div>

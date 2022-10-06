@@ -1,0 +1,5 @@
+GET        /user-details                                          controllers.test.TestController.getUserDetails
+GET        /de-enrol                                              controllers.test.TestController.deEnrol
+GET        /clear-draft-cases                                     controllers.test.TestController.clearDraftCases
+GET        /submitted-check/:submissionId                         controllers.test.TestController.getSubmittedCheck(submissionId: String)
+GET        /attachments                                           controllers.test.TestController.getAttachments

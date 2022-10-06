@@ -1,0 +1,102 @@
+@*
+ * Copyright 2022 HM Revenue & Customs
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *@
+
+@import _root_.utils.FrontendComponentHelper._
+@import _root_.utils.Formatters.formatDate
+@import actions.propertylinking.requests.LinkingSessionRequest
+@import config.ApplicationConfig
+@import helpers._
+@import play.api.data._
+@import views.html.includes.assessmentHeading
+
+@this(govukErrorSummary : GovukErrorSummary, govukRadios : GovukRadios, govukButton : GovukButton, dateFields: dateFields, mainLayout: views.html.mainLayout, formWithCSRF: FormWithCSRF)
+
+@(form: Form[_], clientDetails: Option[ClientDetails] = None, backLink: String)(implicit request: LinkingSessionRequest[_], messages: Messages, config: ApplicationConfig)
+
+@clientSuffix = @{ clientDetails.fold("")(_ => ".client") }
+
+@occupancyStartDateHint = @{
+    request.ses.
+        propertyOwnership.flatMap(_.fromDate)
+        .getOrElse(request.ses.earliestStartDate)
+        .plusDays(1)
+}
+
+@mainLayout(
+    pageTitle = messages(s"propertyOccupancy.title$clientSuffix"),
+    backUri = Some(backLink),
+    hasErrors = form.hasErrors
+) {
+
+    @if(form.errors.nonEmpty) {
+        @govukErrorSummary(
+            ErrorSummary(
+                errorList = formatErrorMessages(
+                    form,
+                    "lastOccupiedDate",
+                    clientSuffix,
+                    manualDateErrorHandler = {
+                        case e @ "error.date.mustBeAfterStartDate" =>
+                            messages(
+                                e + clientSuffix,
+                                request.ses.propertyRelationship.map(_.capacity).fold(
+                                    messages("error.date.mustBeAfterStartDate.relationship.fallback"))(
+                                    _.name.replace("_", s" ${messages("common.and")} ").toLowerCase),
+                                formatDate(request.ses.propertyOwnership.flatMap(_.fromDate)
+                                    .getOrElse(request.ses.earliestStartDate))
+                            )
+                    }
+                ),
+                title = Text(messages("error.propertyRepresentation.title"))
+            )
+        )
+    }
+
+    @assessmentHeading(request.ses.localAuthorityReference, request.ses.address)
+
+    <span id="caption" class="govuk-caption-l">@messages("caption.add.property")</span>
+    <h1 id="page-header" class="govuk-heading-l">@messages(s"propertyOccupancy.title$clientSuffix")</h1>
+
+    @formWithCSRF(action = controllers.propertyLinking.routes.ClaimPropertyOccupancyController.submitOccupancy()) {
+
+        @govukRadios(Radios(
+            name = "stillOccupied",
+            items = Seq(
+                RadioItem(
+                    content = Text("Yes"),
+                    value = Some("true")
+                ),
+                RadioItem(
+                    content = Text("No"),
+                    value = Some("false"),
+                    conditionalHtml = Some(
+                        dateFields(
+                            form = form,
+                            fieldName = "lastOccupiedDate",
+                            hintDateOverride = Some(occupancyStartDateHint),
+                            label = Some(s"label.lastOccupiedDate$clientSuffix")))
+
+                )
+            )).withFormField(form("stillOccupied")))
+
+        @govukButton(
+            Button(
+                content = Text(messages("label.continue")),
+                attributes = Map("id" -> "continue")
+            )
+        )
+    }
+}
